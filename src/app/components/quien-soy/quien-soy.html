@@ -1,0 +1,28 @@
+
+<div *ngIf="loading">
+  <p>Cargando datos del usuario...</p>
+</div>
+
+<div id="contenedor_git">
+  <div id="datos_user"  *ngIf="!loading && userData">
+    <h2>{{ userData.name }} ({{ userData.login }})</h2>
+    <img [src]="userData.avatar_url" [alt]="userData.login" width="150">
+    <p><strong>Bio:</strong> {{ userData.bio || 'Sin bio disponible' }}</p>
+    <p><strong>Ubicación:</strong> {{ userData.location || 'No disponible' }}</p>
+    <p><strong>Repositorios públicos:</strong> {{ userData.public_repos }}</p>
+    <p><strong>Seguidores:</strong> {{ userData.followers }}</p>
+    <p><strong>Siguiendo:</strong> {{ userData.following }}</p>
+  </div>
+</div>
+
+<div id="explicacion_juego">
+  <h2>Juego A Eleccion</h2>
+  <p>El juego elegido por mi es el Mayor o menor el cual elegi por que es facil ya sea de entender para nuestro usuario como divertido y facil para nosotros el lograr implementarlo sin tener que complicarnos tanto en el desarrollo del mismo</p>
+</div>
+
+
+
+
+<div *ngIf="!loading && !userData">
+  <p>No se pudieron cargar los datos del usuario.</p>
+</div>

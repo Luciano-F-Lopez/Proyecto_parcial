@@ -1,12 +1,22 @@
-import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component, inject } from '@angular/core';
+import { RouterOutlet, RouterLink, Router } from '@angular/router';
 
 @Component({
-  selector: 'app-root',
-  imports: [RouterOutlet],
-  templateUrl: './app.html',
-  styleUrl: './app.css'
+selector: 'app-root',
+standalone: true,
+imports: [RouterOutlet, RouterLink],
+template: `
+<div id=nav_global> <nav>
+<a routerLink="/home">Home</a> 
+<a routerLink="/Login">Login</a> 
+<a routerLink="/Registro">Registro</a> 
+<a routerLink="/QuienSoy">QuienSoy</a>
+</nav></div>
+<router-outlet></router-outlet>
+`
 })
 export class App {
-  protected readonly title = signal('Proyecto-parcial');
+private router = inject(Router);
+goAbout() { this.router.navigate(['/about']); }
 }
+
