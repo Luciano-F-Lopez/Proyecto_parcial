@@ -1,1 +1,23 @@
-<p>registro works!</p>
+<h2>Registro</h2>
+
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <label>Email:</label>
+  <input type="email" formControlName="email" />
+
+  <label>Nombre:</label>
+  <input type="text" formControlName="nombre" />
+
+  <label>Apellido:</label>
+  <input type="text" formControlName="apellido" />
+
+  <label>Edad:</label>
+  <input type="number" formControlName="edad" />
+
+  <label>Contraseña:</label>
+  <input type="password" formControlName="password" />
+
+  <button type="submit" [disabled]="form.invalid">Registrarse</button>
+</form>
+
+<p *ngIf="errorMessage" style="color:red">{{ errorMessage }}</p>
+
