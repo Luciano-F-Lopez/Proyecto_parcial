@@ -1,1 +1,20 @@
-<p>home works!</p>
+<div class="bienvenida">
+  <h1>Bienvenido a Sala de Juegos 🎮</h1>
+
+  <div *ngIf="!usuario">
+    <button  (click)="irALogin()">Iniciar sesión</button>
+    <button  (click)="irARegistro()">Registrarse</button>
+  </div>
+
+
+  <div *ngIf="usuario">
+    <p>Hola, <strong>{{ usuario.email }}</strong></p>
+    <button  (click)="logout()">Cerrar sesión</button>
+  </div>
+
+  <hr>
+
+  <h2>Juegos disponibles</h2>
+  <p>En proximos commits</p>
+</div>
+

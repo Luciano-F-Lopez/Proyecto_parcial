@@ -1,23 +1,25 @@
 <h2>Registro</h2>
 
-<form [formGroup]="form" (ngSubmit)="onSubmit()">
-  <label>Email:</label>
-  <input type="email" formControlName="email" />
+<div id="div_formulario">
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <label>Email:</label>
+    <input type="email" formControlName="email" />
 
-  <label>Nombre:</label>
-  <input type="text" formControlName="nombre" />
+    <label>Nombre:</label>
+    <input type="text" formControlName="nombre" />
 
-  <label>Apellido:</label>
-  <input type="text" formControlName="apellido" />
+    <label>Apellido:</label>
+    <input type="text" formControlName="apellido" />
 
-  <label>Edad:</label>
-  <input type="number" formControlName="edad" />
+    <label>Edad:</label>
+    <input type="number" formControlName="edad" />
 
-  <label>Contraseña:</label>
-  <input type="password" formControlName="password" />
+    <label>Contraseña:</label>
+    <input type="password" formControlName="password" />
 
-  <button type="submit" [disabled]="form.invalid">Registrarse</button>
-</form>
+    <button id="boton_registro" type="submit" [disabled]="form.invalid">Registrarse</button>
+  </form>
+</div>
 
 <p *ngIf="errorMessage" style="color:red">{{ errorMessage }}</p>
 

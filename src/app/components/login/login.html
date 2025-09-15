@@ -1,7 +1,7 @@
 <div class="login-container">
   <h2>Iniciar sesión</h2>
 
-
+<div id="div_formulario">
   <form [formGroup]="form" (ngSubmit)="login()">
     <div>
       <label for="email">Correo</label>
@@ -13,8 +13,9 @@
       <input id="password" type="password" formControlName="password" placeholder="Ingresa tu contraseña" />
     </div>
 
-    <button type="submit" [disabled]="form.invalid">Ingresar</button>
+    <button id="boton_login" type="submit" [disabled]="form.invalid">Ingresar</button>
   </form>
+</div>
 
   <!-- Mostrar error -->
   <p *ngIf="errorMessage" class="error">{{ errorMessage }}</p>

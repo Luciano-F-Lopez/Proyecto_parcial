@@ -1,0 +1,13 @@
+button{
+    margin-top: 20px;
+    width: 100px;
+    align-self: center;
+}
+
+button:hover{
+    color: black;
+    background:  #00FFFF;
+    border-radius: 8px;
+    cursor: pointer;
+}
+

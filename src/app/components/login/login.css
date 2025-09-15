@@ -1,0 +1,48 @@
+h2{
+    text-align: center;
+    font-size: 40px;
+    color:#00FFFF ;
+}
+
+
+#div_formulario {
+    text-align: center;
+    justify-items: center;
+}
+
+
+#div_formulario form{
+    padding: 20px;
+    display: flex;
+    flex-direction:column;
+    text-align: center;
+    border: 2px solid #00FFFF;
+    border-radius: 8px;
+} 
+
+#div_formulario label{
+    padding: 5px;
+    display: flex;
+    flex-direction:column;
+    color: #00FFFF;
+    font-weight: bold;
+}
+
+#div_formulario input{
+    width: 250px;
+    border-radius: 20px;
+} 
+
+#boton_login{
+    margin-top: 20px;
+    width: 100px;
+    align-self: center;
+}
+
+#boton_login:hover{
+    color: black;
+    background:  #00FFFF;
+    border-radius: 8px;
+    cursor: pointer;
+    
+}
