@@ -35,7 +35,7 @@ export class Home implements OnInit {
       this.usuario = data.user;
     }
 
-    // Escuchar cambios de sesión (login/logout)
+    
     this.supabaseService.client.auth.onAuthStateChange((_event, session) => {
      this.ngZone.run(() => {
         this.usuario = session?.user || null;

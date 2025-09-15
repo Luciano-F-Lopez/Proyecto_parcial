@@ -41,7 +41,7 @@ export class Login {
     this.errorMessage = error.message;
   } else {
     console.log('Login success:', data);
-    this.router.navigate(['/home']); // redirigir al home
+    this.router.navigate(['/home']); 
   }
 }
 

@@ -64,7 +64,7 @@ export class Registro {
         return;
       }
 
-      // 3. Redirigir al Home
+      
       this.router.navigate(['/home']);
     }
   }
