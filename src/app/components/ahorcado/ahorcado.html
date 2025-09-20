@@ -1,0 +1,22 @@
+<div class="ahorcado">
+  <h2>Juego del Ahorcado</h2>
+
+  <p class="progreso">{{ progreso.join(' ') }}</p>
+  <p>Intentos: {{ intentos }} / {{ intentosMax }}</p>
+
+  <div class="teclado">
+    <button 
+      *ngFor="let letra of letras" 
+      (click)="seleccionar(letra)"
+      [disabled]="mensajeFinal !== ''">
+      {{ letra }}
+    </button>
+  </div>
+
+  <button (click)="iniciarJuego()">🔄 Nueva palabra</button>
+
+  <p class="final" *ngIf="mensajeFinal">
+    {{ mensajeFinal }}
+  </p>
+</div>
+

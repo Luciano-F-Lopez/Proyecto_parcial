@@ -28,8 +28,12 @@ export class Home implements OnInit {
   this.router.navigate(['/Registro']);
 }
 
+irAAhorcado() {
+  this.router.navigate(['/Ahorcado']);
+}
+
   async ngOnInit() {
-    // Revisar si ya hay un usuario logueado
+    
     const { data } = await this.supabaseService.client.auth.getUser();
     if (data.user) {
       this.usuario = data.user;
@@ -46,7 +50,7 @@ export class Home implements OnInit {
   async logout() {
     await this.supabaseService.client.auth.signOut();
     this.usuario = null;
-    this.router.navigate(['/']); // volver a inicio
+    this.router.navigate(['/']); 
   }
 
 }
