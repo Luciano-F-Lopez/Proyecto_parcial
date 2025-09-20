@@ -25,7 +25,7 @@ export class Ahorcado implements OnInit {
   palabra: string = ''; 
   letras: string[] = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
   progreso: string[] = [];
-  letrasSeleccionadas: number = 0;
+  letrasSeleccionadas: string[] = [];
   intentosMax: number = 6;
   intentos: number = 0;
   mensajeFinal: string = '';
@@ -39,7 +39,7 @@ export class Ahorcado implements OnInit {
   iniciarJuego() {
     this.palabra = this.palabras[Math.floor(Math.random() * this.palabras.length)];
     this.progreso = Array(this.palabra.length).fill('_');
-    this.letrasSeleccionadas = 0;
+    this.letrasSeleccionadas = [];
     this.intentos = 0;
     this.mensajeFinal = '';
   }
@@ -47,7 +47,7 @@ export class Ahorcado implements OnInit {
   seleccionar(letra: string) {
     if (this.mensajeFinal) return; 
 
-    this.letrasSeleccionadas++;
+    this.letrasSeleccionadas.push(letra);
     let acierto = false;
 
     this.palabra.split('').forEach((l, i) => {

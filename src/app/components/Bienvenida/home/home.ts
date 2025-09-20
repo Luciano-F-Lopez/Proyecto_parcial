@@ -32,6 +32,10 @@ irAAhorcado() {
   this.router.navigate(['/Ahorcado']);
 }
 
+irAMayorMenor() {
+  this.router.navigate(['/MayorMenor']);
+}
+
   async ngOnInit() {
     
     const { data } = await this.supabaseService.client.auth.getUser();

@@ -1,1 +1,15 @@
-<p>mayor-menor works!</p>
+<div style="text-align:center; margin-top:2rem;">
+      <h2>Mayor o Menor</h2>
+
+      <div *ngIf="!mensajeFinal">
+        <p>Número actual: {{numeroActual}}</p>
+        <button (click)="adivinar(true)" >Mayor</button>
+        <button (click)="adivinar(false)" >Menor</button>
+        <p>Cartas acertadas: {{cartasAcertadas}} / Intentos: {{totalIntentos}}</p>
+      </div>
+
+      <div *ngIf="mensajeFinal">
+        <p>{{mensajeFinal}}</p>
+        <button (click)="reiniciarJuego()" >Reiniciar</button>
+      </div>
+</div>
