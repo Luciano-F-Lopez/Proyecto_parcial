@@ -64,11 +64,6 @@ export class SalaChat implements OnInit {
       if (error) {
         console.error('Error al enviar mensaje:', error);
       } else {
-        this.mensajes.push({
-          usuario: this.usuarioNombre,
-          mensaje: this.nuevoMensaje,
-          fecha: new Date().toISOString()
-        });
         this.nuevoMensaje = '';
       }
     });
