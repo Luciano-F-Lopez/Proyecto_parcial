@@ -15,6 +15,7 @@ export class SalaChat implements OnInit {
   nuevoMensaje: string = '';
   usuarioId: string | null = null;
   usuarioNombre: string = '';
+  cargandoUsuario = true;
 
   constructor(private supabaseService: SupabaseService, private ngZone: NgZone) {}
 
@@ -25,6 +26,7 @@ export class SalaChat implements OnInit {
       this.usuarioId = userResponse.data.user.id;
       this.usuarioNombre = userResponse.data?.user?.email || '';
     }
+    this.cargandoUsuario = false;
 
    
     const { data } = await this.supabaseService.client
