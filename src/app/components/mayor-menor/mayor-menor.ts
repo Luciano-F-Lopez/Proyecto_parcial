@@ -11,8 +11,8 @@ import { CommonModule } from '@angular/common';
 })
 export class MayorMenor implements OnInit {
 
-  baraja: number[] = [];
-  numeroActual!: number;
+  baraja: { valor: number, img: string }[] = [];
+  numeroActual!: { valor: number, img: string };
   cartasAcertadas: number = 0;
   totalIntentos: number = 0;
   intentosMax: number = 10;
@@ -26,36 +26,62 @@ export class MayorMenor implements OnInit {
 
   crearBaraja() {
     this.baraja = [];
-    for (let i = 1; i <= 13; i++) {
-      this.baraja.push(i);
+
+    const palos = ['clubs', 'diamonds', 'hearts', 'spades'];
+    const valores = [
+      {nombre: 'A', valor: 1},
+      {nombre: '2', valor: 2},
+      {nombre: '3', valor: 3},
+      {nombre: '4', valor: 4},
+      {nombre: '5', valor: 5},
+      {nombre: '6', valor: 6},
+      {nombre: '7', valor: 7},
+      {nombre: '8', valor: 8},
+      {nombre: '9', valor: 9},
+      {nombre: '10', valor: 10},
+      {nombre: 'J', valor: 11},
+      {nombre: 'Q', valor: 12},
+      {nombre: 'K', valor: 13},
+    ];
+
+    for (let palo of palos) {
+      for (let v of valores) {
+        this.baraja.push({
+          valor: v.valor,
+          img: `assets/cartas/${palo}_${v.nombre}.png`
+        });
+      }
     }
-    this.baraja.sort(() => Math.random() - 0.5); 
+
+    
+    this.baraja.sort(() => Math.random() - 0.5);
   }
 
   siguienteNumero() {
     if (this.baraja.length === 0) return;
     this.numeroActual = this.baraja.pop()!;
+    console.log('Carta actual:', this.numeroActual);
   }
 
   adivinar(mayor: boolean) {
     if (this.mensajeFinal) return;
-    const proximoNumero = this.baraja[this.baraja.length - 1];
+    const proximoCarta = this.baraja[this.baraja.length - 1];
 
-    if (!proximoNumero) {
-      this.mensajeFinal = `Juego terminado. acertadas: ${this.cartasAcertadas}`;
+    if (!proximoCarta) {
+      this.mensajeFinal = `Juego terminado. Cartas acertadas: ${this.cartasAcertadas}`;
       this.guardarPartida();
       return;
     }
 
-    const acierto = (mayor && proximoNumero > this.numeroActual) ||
-                    (!mayor && proximoNumero < this.numeroActual);
+    const acierto = (mayor && proximoCarta.valor > this.numeroActual.valor) ||
+                    (!mayor && proximoCarta.valor < this.numeroActual.valor);
 
     if (acierto) this.cartasAcertadas++;
     this.totalIntentos++;
     this.siguienteNumero();
 
     if (this.totalIntentos >= this.intentosMax) {
-      this.mensajeFinal = `Juego terminado. acertadas: ${this.cartasAcertadas}`;
+      this.mensajeFinal = `Juego terminado. Cartas acertadas: ${this.cartasAcertadas}`;
       this.guardarPartida();
     }
   }
@@ -80,5 +106,6 @@ export class MayorMenor implements OnInit {
     this.siguienteNumero();
   }
 }
+
 
 
