@@ -7,14 +7,15 @@ import { NotFound } from './pages/not-found/not-found';
 import { Ahorcado } from './components/ahorcado/ahorcado';
 import {MayorMenor} from './components/mayor-menor/mayor-menor'
 import {SalaChat} from './components/sala-chat/sala-chat'
+import { AuthGuard } from './guards/auth-guard';
 
 export const routes: Routes = [{ path: '', redirectTo: '/home', pathMatch: 'full' }, 
     { path: 'home', component: Home },
     { path: 'Login', component: Login }, 
     { path: 'QuienSoy', component: QuienSoy }, 
     { path: 'Registro', component: Registro },
-    { path: 'Ahorcado', component: Ahorcado },
-    { path: 'MayorMenor', component: MayorMenor },
-    { path: 'SalaChat', component: SalaChat },
+    { path: 'Ahorcado', component: Ahorcado, canActivate:[AuthGuard] },
+    { path: 'MayorMenor', component: MayorMenor,canActivate:[AuthGuard] },
+    { path: 'SalaChat', component: SalaChat ,canActivate:[AuthGuard]},
     { path: '**', component: NotFound }  
 ];
