@@ -1,0 +1,20 @@
+<h1>BIENVENIDO AL CHAT GENERAL</h1>
+
+
+
+<div id="chat-container">
+
+  <div *ngFor="let msg of mensajes" class="mensaje" 
+       [ngClass]="{'propio': msg.usuario === usuarioNombre, 'otro': msg.usuario !== usuarioNombre}">
+    <strong>{{ msg.usuario.split('@')[0] }}</strong>
+    <span id="hora">{{ msg.fecha | date:'shortTime' }}</span>
+    <p>{{ msg.mensaje }}</p>
+  </div>
+
+  <div id="input-container">
+    <input [(ngModel)]="nuevoMensaje" placeholder="Escribe un mensaje..." />
+    <button (click)="enviarMensaje()">Enviar</button>
+  </div>
+</div>
+
+

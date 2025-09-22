@@ -17,10 +17,21 @@
   <h2>Juegos disponibles</h2>
 
 
-<div class="juegos">
-  <button (click)="irAAhorcado()">🎯 Jugar al Ahorcado</button>
-  <button (click)="irAMayorMenor()">🎯 Jugar al Mayor O Menor</button>
-</div>
+  <div class="juegos">
+      <img src="ahorcado.jpg" 
+       alt="Ahorcado" 
+       (click)="irAAhorcado()" 
+       class="juego-img">
+
+      <img src="higher-lower-card-game.jpg" 
+       alt="Mayor o Menor" 
+       (click)="irAMayorMenor()" 
+       class="juego-img">
+  </div>
+
+  <div class="chat">
+    <button (click)="irASalaChat()">💬 Chat global</button>
+  </div>
 
 
 </div>

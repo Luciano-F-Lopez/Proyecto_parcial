@@ -9,5 +9,17 @@ button:hover{
     background:  #00FFFF;
     border-radius: 8px;
     cursor: pointer;
+    transform: scale(1.3);
 }
 
+.juego-img {
+  width: 150px;
+  height: 150px;
+  cursor: pointer;
+  margin: 10px;
+  transition: transform 0.2s;
+}
+
+.juego-img:hover {
+  transform: scale(1.1);
+}

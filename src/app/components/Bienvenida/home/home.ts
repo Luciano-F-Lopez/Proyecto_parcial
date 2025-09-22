@@ -12,7 +12,7 @@ import { CommonModule } from '@angular/common';
   styleUrl: './home.css'
 })
 export class Home implements OnInit {
-    usuario: any = null; // Guardamos al usuario logueado (si existe)
+    usuario: any = null; 
 
   constructor(
     private supabaseService: SupabaseService,
@@ -34,6 +34,10 @@ irAAhorcado() {
 
 irAMayorMenor() {
   this.router.navigate(['/MayorMenor']);
+}
+
+irASalaChat(){
+  this.router.navigate(['/SalaChat']);
 }
 
   async ngOnInit() {

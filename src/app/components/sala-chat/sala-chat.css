@@ -1,0 +1,115 @@
+h1 {
+  text-align: center;
+  color: #fff; 
+  margin-bottom: 20px; 
+  
+}
+
+#chat-container{
+    justify-content: center;
+    display:flex ;
+    flex-direction: column;
+    text-align: center;
+    border: 2px solid white;
+    border-radius: 15px;
+    padding: 10px; 
+    max-width: 800px; 
+    margin: 0 auto;
+
+    max-height: 800px;  
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+
+input{
+    width: 600px;
+    height: 50px;
+    border-radius: 20px;
+}
+
+
+span{
+    margin: 10px;
+}
+
+button{
+    margin-top: 20px;
+    width: 100px;
+    height: 35px;
+    align-self: center;
+    border-radius: 8px;
+    margin-left: 8px;
+
+}
+
+button:hover{
+    color: black;
+    background:  #00cb1e;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+
+.mensaje {
+    padding: 6px 10px;
+    margin: 5px 0;
+    max-width: 70%; 
+    border-radius: 10px;
+    color: #fff;
+}
+
+.propio {
+    align-self: flex-end;
+    text-align: right;
+    margin-right: 10px; 
+    background-color: #1e90ff;
+}
+
+.propio span{
+    background-color: #1e90ff;
+    color:white;
+}
+
+.propio strong{
+    background-color: #1e90ff;
+    color:white
+}
+
+.propio p{
+    background-color: #1e90ff;
+    color:white
+}
+
+
+.otro {
+    align-self: flex-start;
+    text-align: left;
+    margin-left: 10px; 
+    background-color: aliceblue;
+}
+
+.otro span{
+    background-color:aliceblue; ;
+    color:black
+}
+
+.otro strong{
+    background-color:aliceblue; ;
+    color:black
+}
+
+.otro p{
+    background-color:aliceblue; ;
+    color:black
+}
+
+
+
+
+
+
+
+
+
+
