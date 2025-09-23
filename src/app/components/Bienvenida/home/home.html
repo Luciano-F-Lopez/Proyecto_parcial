@@ -7,7 +7,7 @@
   </div>
 
 
-  <div *ngIf="usuario">
+  <div *ngIf="usuario" class="usuario-bloque">
     <p>Hola, <strong>{{ usuario.email }}</strong></p>
     <button  (click)="logout()">Cerrar sesión</button>
   </div>
