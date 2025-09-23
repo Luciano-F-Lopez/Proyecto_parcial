@@ -1,7 +1,7 @@
 <div class="bienvenida">
   <h1>Bienvenido a Sala de Juegos 🎮</h1>
 
-  <div *ngIf="!usuario">
+  <div *ngIf="!usuario" class="botones-container">
     <button  (click)="irALogin()">Iniciar sesión</button>
     <button  (click)="irARegistro()">Registrarse</button>
   </div>
