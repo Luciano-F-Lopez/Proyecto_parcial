@@ -29,7 +29,7 @@
     <input type="number" formControlName="edad" />
     <div *ngIf="form.get('edad')?.invalid && form.get('edad')?.touched" style="color:red">
       <small *ngIf="form.get('edad')?.errors?.['required']">La edad es obligatoria</small>
-      <small *ngIf="form.get('edad')?.errors?.['min']">Debes tener al menos 18 años</small>
+      <small *ngIf="form.get('edad')?.errors?.['min']">Debes tener al menos 2 años</small>
     </div>
 
    

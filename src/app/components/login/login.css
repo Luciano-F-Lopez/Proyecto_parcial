@@ -75,3 +75,9 @@ h3 {
     background: black;
     color: #00FFFF;
 }
+
+.error {
+  color: red;
+  font-weight: bold;
+  margin-top: 10px;
+}
