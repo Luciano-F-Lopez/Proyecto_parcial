@@ -21,5 +21,13 @@
   <p *ngIf="errorMessage" class="error">{{ errorMessage }}</p>
 
 
+<h3>Login rápido:</h3>
+<div class="login-rapido">
+  <button *ngFor="let usuario of usuariosRapidos" (click)="loginRapido(usuario)">
+    {{ usuario.email }}
+  </button>
+</div>
+
+
 </div>
 

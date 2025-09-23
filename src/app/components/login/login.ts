@@ -15,6 +15,12 @@ export class Login {
   form: FormGroup;
   errorMessage: string | null = null;
 
+   usuariosRapidos = [
+    { email: 'prueba1@gmail.com', password: '123456' },
+    { email: 'prueba2@gmail.com', password: '123456' },
+    { email: 'prueba3@gmail.com', password: '123456' }
+  ];
+
   constructor(
     private fb: FormBuilder,
     private supabaseService: SupabaseService,
@@ -29,6 +35,7 @@ export class Login {
  async login() {
   this.errorMessage = null;
   const { email, password } = this.form.value;
+  
 
   console.log(this.form.value)
 
@@ -44,5 +51,11 @@ export class Login {
     this.router.navigate(['/home']); 
   }
 }
+
+
+async loginRapido(usuario: { email: string, password: string }) {
+    this.form.setValue({ email: usuario.email, password: usuario.password });
+    await this.login();
+  }
 
 }
