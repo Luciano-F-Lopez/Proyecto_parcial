@@ -2,24 +2,50 @@
 
 <div id="div_formulario">
   <form [formGroup]="form" (ngSubmit)="onSubmit()">
+
     <label>Email:</label>
     <input type="email" formControlName="email" />
+    <div *ngIf="form.get('email')?.invalid && form.get('email')?.touched" style="color:red">
+      <small *ngIf="form.get('email')?.errors?.['required']">El email es obligatorio</small>
+      <small *ngIf="form.get('email')?.errors?.['email']">Debe ser un email válido</small>
+    </div>
 
+    
     <label>Nombre:</label>
     <input type="text" formControlName="nombre" />
+    <div *ngIf="form.get('nombre')?.invalid && form.get('nombre')?.touched" style="color:red">
+      <small>El nombre es obligatorio</small>
+    </div>
 
+    
     <label>Apellido:</label>
     <input type="text" formControlName="apellido" />
+    <div *ngIf="form.get('apellido')?.invalid && form.get('apellido')?.touched" style="color:red">
+      <small>El apellido es obligatorio</small>
+    </div>
 
+    
     <label>Edad:</label>
     <input type="number" formControlName="edad" />
+    <div *ngIf="form.get('edad')?.invalid && form.get('edad')?.touched" style="color:red">
+      <small *ngIf="form.get('edad')?.errors?.['required']">La edad es obligatoria</small>
+      <small *ngIf="form.get('edad')?.errors?.['min']">Debes tener al menos 18 años</small>
+    </div>
 
+   
     <label>Contraseña:</label>
     <input type="password" formControlName="password" />
+    <div *ngIf="form.get('password')?.invalid && form.get('password')?.touched" style="color:red">
+      <small *ngIf="form.get('password')?.errors?.['required']">La contraseña es obligatoria</small>
+      <small *ngIf="form.get('password')?.errors?.['minlength']">Debe tener al menos 6 caracteres</small>
+    </div>
 
+   
     <button id="boton_registro" type="submit" [disabled]="form.invalid">Registrarse</button>
   </form>
 </div>
 
+
 <p *ngIf="errorMessage" style="color:red">{{ errorMessage }}</p>
+
 
