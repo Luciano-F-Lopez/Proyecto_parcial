@@ -8,12 +8,13 @@ import { Ahorcado } from './components/ahorcado/ahorcado';
 import {MayorMenor} from './components/mayor-menor/mayor-menor'
 import {SalaChat} from './components/sala-chat/sala-chat'
 import { AuthGuard } from './guards/auth-guard';
+import { guestGuard } from './guards/guestGuard';
 
 export const routes: Routes = [{ path: '', redirectTo: '/home', pathMatch: 'full' }, 
     { path: 'home', component: Home },
-    { path: 'Login', component: Login }, 
+    { path: 'Login', component: Login,canActivate:[guestGuard] }, 
     { path: 'QuienSoy', component: QuienSoy }, 
-    { path: 'Registro', component: Registro },
+    { path: 'Registro', component: Registro,canActivate:[guestGuard] },
     { path: 'Ahorcado', component: Ahorcado, canActivate:[AuthGuard] },
     { path: 'MayorMenor', component: MayorMenor,canActivate:[AuthGuard] },
     { path: 'SalaChat', component: SalaChat ,canActivate:[AuthGuard]},

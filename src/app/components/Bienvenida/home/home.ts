@@ -2,23 +2,33 @@ import { Component, OnInit, NgZone } from '@angular/core';
 import { Router } from '@angular/router';
 import { SupabaseService } from '../../../services/supabase';
 import { CommonModule } from '@angular/common'; 
+import { SalaChat } from '../../sala-chat/sala-chat';
 
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule,SalaChat],
   templateUrl: './home.html',
   styleUrl: './home.css'
 })
 export class Home implements OnInit {
     usuario: any = null; 
+    mostrarChat = false;
 
   constructor(
     private supabaseService: SupabaseService,
     private router: Router,
     private ngZone: NgZone
   ) {}
+
+  abrirChat() {
+    this.mostrarChat = true;
+  }
+
+  cerrarChat() {
+    this.mostrarChat = false;
+  }
 
   irALogin() {
   this.router.navigate(['/Login']);

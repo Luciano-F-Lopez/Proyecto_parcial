@@ -29,8 +29,9 @@
        class="juego-img">
   </div>
 
-  <div class="chat">
-    <button (click)="irASalaChat()">💬 Chat global</button>
+   <div class="chat">
+    <button (click)="mostrarChat = true">💬 Chat global</button>
+    <app-sala-chat *ngIf="mostrarChat" (cerrar)="mostrarChat = false"></app-sala-chat>
   </div>
 
 
