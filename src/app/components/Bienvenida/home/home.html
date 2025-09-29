@@ -31,6 +31,7 @@
 
    <div class="chat">
     <button (click)="mostrarChat = true">💬 Chat global</button>
+    <button (click)="mostrarChat = false">💬 Cerrar chat</button>
     <app-sala-chat *ngIf="mostrarChat" (cerrar)="mostrarChat = false"></app-sala-chat>
   </div>
 
