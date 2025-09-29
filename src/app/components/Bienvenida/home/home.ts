@@ -26,10 +26,6 @@ export class Home implements OnInit {
     this.mostrarChat = true;
   }
 
-  cerrarChat() {
-    this.mostrarChat = false;
-  }
-
   irALogin() {
   this.router.navigate(['/Login']);
 }

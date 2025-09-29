@@ -1,14 +1,18 @@
-<h1>BIENVENIDO AL CHAT GENERAL</h1>
 
+<button class="open-chat-btn"  *ngIf="!mostrarChat" (click)="mostrarChat = true">💬</button>
 
+<div class="chat-popup" *ngIf="mostrarChat">
+  <button class="close-btn" (click)="mostrarChat = false">✖</button>
 
-<div id="chat-container">
+  <h1>💬 Chat General</h1>
 
-  <div *ngFor="let msg of mensajes" class="mensaje" 
-       [ngClass]="{'propio': msg.usuario === usuarioNombre, 'otro': msg.usuario !== usuarioNombre}">
-    <strong>{{ msg.usuario.split('@')[0] }}</strong>
-    <span id="hora">{{ msg.fecha | date:'shortTime' }}</span>
-    <p>{{ msg.mensaje }}</p>
+  <div id="chat-container">
+    <div *ngFor="let msg of mensajes" class="mensaje" 
+         [ngClass]="{'propio': msg.usuario === usuarioNombre, 'otro': msg.usuario !== usuarioNombre}">
+      <strong>{{ msg.usuario.split('@')[0] }}</strong>
+      <span id="hora">{{ msg.fecha | date:'shortTime' }}</span>
+      <p>{{ msg.mensaje }}</p>
+    </div>
   </div>
 
   <div id="input-container">
@@ -16,6 +20,7 @@
     <button (click)="enviarMensaje()">Enviar</button>
   </div>
 </div>
+
 
 
 

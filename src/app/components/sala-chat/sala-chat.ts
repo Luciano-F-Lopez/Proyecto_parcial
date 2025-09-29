@@ -17,6 +17,7 @@ export class SalaChat implements OnInit, OnDestroy {
   usuarioId: string | null = null;
   usuarioNombre: string = '';
   cargandoUsuario = true;
+  mostrarChat = false
 
   private subscription: any;
   private canal: any;
@@ -32,6 +33,12 @@ export class SalaChat implements OnInit, OnDestroy {
   ngOnDestroy() {
     this.cerrarCanal();
   }
+
+ abrirChat() {
+    this.mostrarChat = true;
+  }
+
+
 
   private async cargarUsuario() {
     const userResponse = await this.supabaseService.client.auth.getUser();
