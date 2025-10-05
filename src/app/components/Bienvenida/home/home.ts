@@ -42,6 +42,10 @@ irAMayorMenor() {
   this.router.navigate(['/MayorMenor']);
 }
 
+irAPreguntados() {
+  this.router.navigate(['/Preguntados']);
+}
+
 irASalaChat(){
   this.router.navigate(['/SalaChat']);
 }

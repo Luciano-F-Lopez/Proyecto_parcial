@@ -1,0 +1,31 @@
+<div *ngIf="cargando">Cargando preguntas...</div>
+
+<div *ngIf="!cargando && preguntas.length">
+  
+  <h2>Puntaje: {{ puntaje }}</h2>
+
+  
+  <h3>{{ preguntaActual.question }}</h3>
+
+  
+  <ul>
+    <li *ngFor="let opcion of mezclarOpciones(preguntaActual)">
+      <button (click)="verificarRespuesta(preguntaActual, opcion)">
+        {{ opcion }}
+      </button>
+    </li>
+  </ul>
+</div>
+
+<div *ngIf="!cargando && !preguntas.length">
+  No hay preguntas disponibles.
+</div>
+
+
+
+
+
+
+
+
+

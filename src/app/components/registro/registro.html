@@ -13,7 +13,7 @@
     
     <label>Nombre:</label>
     <input type="text" formControlName="nombre" />
-    <div *ngIf="form.get('nombre')?.invalid && form.get('nombre')?.touched" style="color:red">
+    <div *ngIf="form.get('nombre')?.invalid && form.get('nombre')?.touched" style="color:red ">
       <small style="color:red">El nombre es obligatorio</small>
     </div>
 
