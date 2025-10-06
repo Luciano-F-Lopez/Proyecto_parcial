@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router';
 import { AuthGuard } from './guards/auth-guard';
-import { guestGuard } from './guards/guestGuard';
+import { LoginGuard } from './guards/login-guard';
 
 export const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -12,7 +12,7 @@ export const routes: Routes = [
   { 
     path: 'Login', 
     loadComponent: () => import('./components/login/login').then(m => m.Login), 
-    canActivate: [guestGuard] 
+    canActivate: [LoginGuard] 
   },
   { 
     path: 'QuienSoy', 
@@ -21,7 +21,7 @@ export const routes: Routes = [
   { 
     path: 'Registro', 
     loadComponent: () => import('./components/registro/registro').then(m => m.Registro), 
-    canActivate: [guestGuard] 
+    canActivate: [LoginGuard] 
   },
   { 
     path: 'Ahorcado', 
