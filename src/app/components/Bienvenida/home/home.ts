@@ -3,12 +3,13 @@ import { Router } from '@angular/router';
 import { SupabaseService } from '../../../services/supabase';
 import { CommonModule } from '@angular/common'; 
 import { SalaChat } from '../../sala-chat/sala-chat';
+import { Resultados } from '../../../pages/resultados/resultados';
 
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule,SalaChat],
+  imports: [CommonModule,SalaChat,Resultados],
   templateUrl: './home.html',
   styleUrl: './home.css'
 })

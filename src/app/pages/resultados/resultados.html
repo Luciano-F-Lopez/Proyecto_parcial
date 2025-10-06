@@ -1,0 +1,68 @@
+<div style="padding: 20px; font-family: Arial, sans-serif;">
+  <h1>📊 Resultados Generales</h1>
+
+  <section *ngIf="blackjack.length">
+    <h2>Blackjack</h2>
+    <table>
+      <tr>
+        <th>Jugador</th>
+        <th>Puntaje</th>
+        <th>Resultado</th>
+      </tr>
+      <tr *ngFor="let partida of blackjack">
+        <td>{{ partida.usuario_email }}</td>
+        <td>{{ partida.puntaje }}</td>
+        <td>{{ partida.resultado }}</td>
+      </tr>
+    </table>
+  </section>
+
+  <section *ngIf="mayorMenor.length">
+    <h2>Mayor o Menor</h2>
+    <table>
+      <tr>
+        <th>Jugador</th>
+        <th>Puntaje</th>
+        <th>Resultado</th>
+      </tr>
+      <tr *ngFor="let partida of mayorMenor">
+        <td>{{ partida.usuario_email }}</td>
+        <td>{{ partida.puntaje }}</td>
+        <td>{{ partida.resultado }}</td>
+      </tr>
+    </table>
+  </section>
+
+  <section *ngIf="preguntados.length">
+    <h2>Preguntados</h2>
+    <table>
+      <tr>
+        <th>Jugador</th>
+        <th>Puntaje</th>
+        <th>Resultado</th>
+      </tr>
+      <tr *ngFor="let partida of preguntados">
+        <td>{{ partida.usuario_email }}</td>
+        <td>{{ partida.puntaje }}</td>
+        <td>{{ partida.resultado }}</td>
+      </tr>
+    </table>
+  </section>
+
+  <section *ngIf="ahorcado.length">
+    <h2>Ahorcado</h2>
+    <table>
+      <tr>
+        <th>Jugador</th>
+        <th>Puntaje</th>
+        <th>Resultado</th>
+      </tr>
+      <tr *ngFor="let partida of ahorcado">
+        <td>{{ partida.usuario_email }}</td>
+        <td>{{ partida.puntaje }}</td>
+        <td>{{ partida.resultado }}</td>
+      </tr>
+    </table>
+  </section>
+</div>
+

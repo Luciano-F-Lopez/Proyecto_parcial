@@ -78,6 +78,7 @@ export class Ahorcado implements OnInit {
 
   await this.supabase.client.from('partidas').insert({
     usuario_id: user?.user?.id,
+    usuario_email: user?.user?.email,
     juego: 'ahorcado',
     resultado,
     puntaje: this.puntaje,

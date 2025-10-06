@@ -120,6 +120,7 @@ export class Blackjack implements OnInit {
 
   await this.supabase.client.from('partidas').insert({
     usuario_id: user?.user?.id,
+    usuario_email: user?.user?.email,
     juego: 'blackjack',
     resultado,
     puntaje: this.puntaje,

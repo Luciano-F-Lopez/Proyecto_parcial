@@ -1,28 +1,56 @@
 import { Routes } from '@angular/router';
-import { Home } from './components/Bienvenida/home/home';
-import { Login } from './components/login/login';
-import { QuienSoy } from './components/quien-soy/quien-soy';
-import { Registro } from './components/registro/registro';
-import { NotFound } from './pages/not-found/not-found';
-import { Ahorcado } from './components/ahorcado/ahorcado';
-import {MayorMenor} from './components/mayor-menor/mayor-menor'
-import {SalaChat} from './components/sala-chat/sala-chat'
 import { AuthGuard } from './guards/auth-guard';
 import { guestGuard } from './guards/guestGuard';
 
-import {Preguntados} from './components/preguntados/preguntados';
-import {Blackjack} from './components/black-jack/black-jack';
+export const routes: Routes = [
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
 
-
-export const routes: Routes = [{ path: '', redirectTo: '/home', pathMatch: 'full' }, 
-    { path: 'home', component: Home },
-    { path: 'Login', component: Login,canActivate:[guestGuard] }, 
-    { path: 'QuienSoy', component: QuienSoy }, 
-    { path: 'Registro', component: Registro,canActivate:[guestGuard] },
-    { path: 'Ahorcado', component: Ahorcado, canActivate:[AuthGuard] },
-    { path: 'MayorMenor', component: MayorMenor,canActivate:[AuthGuard] },
-    { path: 'Preguntados', component: Preguntados,canActivate:[AuthGuard] },
-    { path: 'BlackJack', component: Blackjack,canActivate:[AuthGuard] },
-    { path: 'SalaChat', component: SalaChat ,canActivate:[AuthGuard]},
-    { path: '**', component: NotFound }  
+  { 
+    path: 'home', 
+    loadComponent: () => import('./components/Bienvenida/home/home').then(m => m.Home) 
+  },
+  { 
+    path: 'Login', 
+    loadComponent: () => import('./components/login/login').then(m => m.Login), 
+    canActivate: [guestGuard] 
+  },
+  { 
+    path: 'QuienSoy', 
+    loadComponent: () => import('./components/quien-soy/quien-soy').then(m => m.QuienSoy) 
+  },
+  { 
+    path: 'Registro', 
+    loadComponent: () => import('./components/registro/registro').then(m => m.Registro), 
+    canActivate: [guestGuard] 
+  },
+  { 
+    path: 'Ahorcado', 
+    loadComponent: () => import('./components/ahorcado/ahorcado').then(m => m.Ahorcado), 
+    canActivate: [AuthGuard] 
+  },
+  { 
+    path: 'MayorMenor', 
+    loadComponent: () => import('./components/mayor-menor/mayor-menor').then(m => m.MayorMenor), 
+    canActivate: [AuthGuard] 
+  },
+  { 
+    path: 'Preguntados', 
+    loadComponent: () => import('./components/preguntados/preguntados').then(m => m.Preguntados), 
+    canActivate: [AuthGuard] 
+  },
+  { 
+    path: 'BlackJack', 
+    loadComponent: () => import('./components/black-jack/black-jack').then(m => m.Blackjack), 
+    canActivate: [AuthGuard] 
+  },
+  { 
+    path: 'SalaChat', 
+    loadComponent: () => import('./components/sala-chat/sala-chat').then(m => m.SalaChat), 
+    canActivate: [AuthGuard] 
+  },
+  { 
+    path: '**', 
+    loadComponent: () => import('./pages/not-found/not-found').then(m => m.NotFound) 
+  }
 ];
+
