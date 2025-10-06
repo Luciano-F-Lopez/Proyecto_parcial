@@ -20,7 +20,6 @@ export class LoginGuard implements CanActivate {
       this.router.navigate(['/home']);
       return false;
     }
-
     
     return true;
   }
