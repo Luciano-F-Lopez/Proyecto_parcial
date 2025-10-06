@@ -50,6 +50,10 @@ irASalaChat(){
   this.router.navigate(['/SalaChat']);
 }
 
+irABlackjack(){
+  this.router.navigate(['/BlackJack']);
+}
+
   async ngOnInit() {
     
     const { data } = await this.supabaseService.client.auth.getUser();

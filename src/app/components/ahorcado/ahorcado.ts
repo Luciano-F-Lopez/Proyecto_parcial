@@ -74,14 +74,19 @@ export class Ahorcado implements OnInit {
   }
 
   async guardarPartida(resultado: string) {
-    const { data: user } = await this.supabase.client.auth.getUser();
+  const { data: user } = await this.supabase.client.auth.getUser();
 
-    await this.supabase.client.from('ahorcado_partidas').insert({
-      usuario_id: user?.user?.id,
+  await this.supabase.client.from('partidas').insert({
+    usuario_id: user?.user?.id,
+    juego: 'ahorcado',
+    resultado,
+    puntaje: this.puntaje,
+    detalles: {
       palabra: this.palabra,
-      letras_seleccionadas: this.letrasSeleccionadas,
-      resultado: resultado
-    });
-  }
+      letras_seleccionadas: this.letrasSeleccionadas
+    }
+  });
+}
+
 }
 

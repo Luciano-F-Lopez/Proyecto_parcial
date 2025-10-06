@@ -10,7 +10,8 @@ import {SalaChat} from './components/sala-chat/sala-chat'
 import { AuthGuard } from './guards/auth-guard';
 import { guestGuard } from './guards/guestGuard';
 
-import {Preguntados} from './components/preguntados/preguntados'
+import {Preguntados} from './components/preguntados/preguntados';
+import {Blackjack} from './components/black-jack/black-jack';
 
 
 export const routes: Routes = [{ path: '', redirectTo: '/home', pathMatch: 'full' }, 
@@ -21,6 +22,7 @@ export const routes: Routes = [{ path: '', redirectTo: '/home', pathMatch: 'full
     { path: 'Ahorcado', component: Ahorcado, canActivate:[AuthGuard] },
     { path: 'MayorMenor', component: MayorMenor,canActivate:[AuthGuard] },
     { path: 'Preguntados', component: Preguntados,canActivate:[AuthGuard] },
+    { path: 'BlackJack', component: Blackjack,canActivate:[AuthGuard] },
     { path: 'SalaChat', component: SalaChat ,canActivate:[AuthGuard]},
     { path: '**', component: NotFound }  
 ];

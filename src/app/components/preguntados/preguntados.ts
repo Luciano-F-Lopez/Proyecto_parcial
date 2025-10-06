@@ -91,6 +91,7 @@ export class Preguntados implements OnInit {
       this.setPreguntaActual();
     } else {
       this.juegoTerminado = true;
+      this.guardarPartida();
     }
   }
 
@@ -100,6 +101,22 @@ export class Preguntados implements OnInit {
     this.juegoTerminado = false;
     this.cargarPreguntas();
   }
+
+  async guardarPartida() {
+  const { data: user } = await this.supabase.client.auth.getUser();
+
+  await this.supabase.client.from('partidas').insert({
+    usuario_id: user?.user?.id,
+    juego: 'preguntados',
+    resultado: 'finalizado',
+    puntaje: this.puntaje,
+    detalles: {
+      preguntas_respondidas: this.preguntaActualIndex + 1,
+      total_preguntas: this.limitePreguntas
+    }
+  });
+}
+
 
   get preguntaActual(): Pregunta | null {
     return this.preguntas[this.preguntaActualIndex] || null;

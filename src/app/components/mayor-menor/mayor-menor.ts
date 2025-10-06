@@ -91,16 +91,23 @@ export class MayorMenor implements OnInit {
   }
 
   async guardarPartida() {
-    const { data: user } = await this.supabase.client.auth.getUser();
-    if (!user?.user?.id) return;
+  const { data: user } = await this.supabase.client.auth.getUser();
+  if (!user?.user?.id) return;
 
-    await this.supabase.client.from('mayor_o_menor').insert({
-      usuario_id: user.user.id,
+  const resultado = this.cartasAcertadas >= this.intentosMax / 2 ? 'ganado' : 'perdido';
+
+  await this.supabase.client.from('partidas').insert({
+    usuario_id: user.user.id,
+    juego: 'mayor_menor',
+    resultado,
+    puntaje: this.puntaje,
+    detalles: {
       cartas_acertadas: this.cartasAcertadas,
-      total_intentos: this.totalIntentos,
-      resultado: this.cartasAcertadas >= this.intentosMax / 2 ? 'ganado' : 'perdido'
-    });
-  }
+      total_intentos: this.totalIntentos
+    }
+  });
+}
+
 
   reiniciarJuego() {
     this.cartasAcertadas = 0;

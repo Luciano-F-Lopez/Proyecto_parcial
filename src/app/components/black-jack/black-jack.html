@@ -1,0 +1,37 @@
+<div style="text-align:center; margin-top:2rem;">
+  <h2>🃏 BlackJack</h2>
+
+  <!-- Dealer -->
+  <h3>Dealer</h3>
+  <div class="cartas">
+    <img
+      *ngFor="let carta of dealer; let i = index"
+      [src]="(i === 0 && !juegoTerminado) ? 'assets/cartas/back_dark.png' : carta.img"
+      width="100"
+    />
+  </div>
+  <p *ngIf="juegoTerminado">Puntaje dealer: {{ valorTotal(dealer) }}</p>
+
+  <hr style="margin: 1.5rem 0;">
+
+  <!-- Jugador -->
+  <h3>Jugador</h3>
+  <div class="cartas">
+    <img *ngFor="let carta of jugador" [src]="carta.img" width="100" />
+  </div>
+  <p>Puntaje jugador: {{ valorTotal(jugador) }}</p>
+
+  <!-- Botones -->
+  <div *ngIf="!juegoTerminado">
+    <button (click)="pedirCarta()">Pedir carta</button>
+    <button (click)="plantarse()">Plantarse</button>
+  </div>
+
+  <!-- Resultado -->
+  <div *ngIf="juegoTerminado">
+    <p>{{ mensaje }}</p>
+    <p>Puntaje total: {{ puntaje }}</p>
+    <button (click)="reiniciarJuego()">🔁 Reiniciar</button>
+  </div>
+</div>
+

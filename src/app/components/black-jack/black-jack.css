@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap');
+
+:host {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 1rem;
+  font-family: 'Orbitron', sans-serif;
+  background-color: black;
+  min-height: 100vh;
+}
+
+div {
+  background: #111;
+  padding: 20px 25px;
+  border-radius: 12px;
+  box-shadow: 0 0 20px #00FFFF;
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+  border: 2px solid #00FFFF;
+}
+
+h2 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #00FFFF;
+  margin-bottom: 15px;
+  text-shadow: 0 0 10px #00FFFF;
+  background: #111;
+}
+
+h3 {
+  font-size: 1.2rem;
+  color: #00FFFF;
+  margin-top: 15px;
+  margin-bottom: 10px;
+  background: #111;
+}
+
+hr {
+  border: none;
+  border-top: 2px solid #00FFFF;
+  margin: 1.5rem 0;
+  opacity: 0.6;
+}
+
+.cartas {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+img {
+  width: 100px;
+  border-radius: 8px;
+  border: 2px solid #00FFFF;
+  transition: transform 0.2s ease;
+}
+
+img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px #00cccc;
+}
+
+button {
+  padding: 10px 18px;
+  font-size: 1rem;
+  margin: 8px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  background-color: #00FFFF;
+  color: black;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+button:hover {
+  background-color: #00cccc;
+  transform: translateY(-2px);
+  box-shadow: 0 0 10px #00FFFF;
+}
+
+button:active {
+  transform: translateY(1px);
+}
+
+p {
+  font-size: 1rem;
+  color: #00FFFF;
+  margin-top: 10px;
+  background: #111;
+}
+
+p:last-child {
+  margin-bottom: 0;
+}
+
+div[ngIf="juegoTerminado"] p {
+  font-weight: bold;
+  font-size: 1.1rem;
+  text-shadow: 0 0 6px #00FFFF;
+}
+
+
