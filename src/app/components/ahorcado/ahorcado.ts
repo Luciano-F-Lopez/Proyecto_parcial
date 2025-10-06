@@ -28,6 +28,7 @@ export class Ahorcado implements OnInit {
   letrasSeleccionadas: string[] = [];
   intentosMax: number = 6;
   intentos: number = 0;
+  puntaje: number = 100;
   mensajeFinal: string = '';
 
   constructor(private supabase: SupabaseService) {}
@@ -41,6 +42,7 @@ export class Ahorcado implements OnInit {
     this.progreso = Array(this.palabra.length).fill('_');
     this.letrasSeleccionadas = [];
     this.intentos = 0;
+    this.puntaje = 100;
     this.mensajeFinal = '';
   }
 
@@ -59,6 +61,7 @@ export class Ahorcado implements OnInit {
 
     if (!acierto) {
       this.intentos++;
+      this.puntaje-=10;
     }
 
     if (!this.progreso.includes('_')) {

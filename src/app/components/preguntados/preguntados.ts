@@ -15,8 +15,8 @@ export class Preguntados implements OnInit {
   preguntaActualIndex = 0;
   puntaje = 0;
   opcionesActuales: string[] = [];
-  limitePreguntas = 10; // preguntas por partida
-  juegoTerminado = false; // control del final del juego
+  limitePreguntas = 10; 
+  juegoTerminado = false; 
   preguntasUsadas: Set<number> = new Set(); // IDs de preguntas ya usadas
 
   constructor(
