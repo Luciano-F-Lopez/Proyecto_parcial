@@ -10,7 +10,7 @@
       width="100"
     />
   </div>
-  <p *ngIf="juegoTerminado">Puntaje dealer: {{ valorTotal(dealer) }}</p>
+  <p *ngIf="juegoTerminado">Puntaje dealer: {{ valorTotal(dealer) | puntos}}</p>
 
   <hr style="margin: 1.5rem 0;">
 
@@ -19,7 +19,8 @@
   <div class="cartas">
     <img *ngFor="let carta of jugador" [src]="carta.img" width="100" />
   </div>
-  <p>Puntaje jugador: {{ valorTotal(jugador) }}</p>
+  <p>Puntaje jugador: {{ valorTotal(jugador)| puntos }}</p>
+
 
   <!-- Botones -->
   <div *ngIf="!juegoTerminado">
@@ -30,7 +31,7 @@
   <!-- Resultado -->
   <div *ngIf="juegoTerminado">
     <p>{{ mensaje }}</p>
-    <p>Puntaje total: {{ puntaje }}</p>
+    <p>Puntaje total: {{ puntaje | puntos }}</p>
     <button (click)="reiniciarJuego()">🔁 Reiniciar</button>
   </div>
 </div>

@@ -1,11 +1,12 @@
 import { Component, OnInit, NgZone } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SupabaseService } from '../../services/supabase';
+import { PuntosPipe } from '../../pipes/puntos-pipe';
 
 @Component({
   selector: 'app-preguntados',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule,PuntosPipe],
   templateUrl: './preguntados.html',
   styleUrls: ['./preguntados.css']
 })

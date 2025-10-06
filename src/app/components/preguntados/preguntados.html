@@ -10,12 +10,12 @@
     </button>
   </div>
 
-  <p>Puntaje: {{ puntaje }}</p>
+  <p>Puntaje: {{ puntaje | puntos }}</p>
 </div>
 
 <div *ngIf="juegoTerminado">
   <h2>🎉 ¡Juego terminado!</h2>
-  <p>Tu puntaje final es: {{ puntaje }}</p>
+  <p>Tu puntaje final es: {{ puntaje | puntos }}</p>
   <button (click)="reiniciarJuego()">Reiniciar Juego</button>
 </div>
 

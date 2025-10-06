@@ -11,7 +11,7 @@
       </tr>
       <tr *ngFor="let partida of blackjack">
         <td>{{ partida.usuario_email }}</td>
-        <td>{{ partida.puntaje }}</td>
+        <td>{{ partida.puntaje | puntos }}</td>
         <td>{{ partida.resultado }}</td>
       </tr>
     </table>
@@ -27,7 +27,7 @@
       </tr>
       <tr *ngFor="let partida of mayorMenor">
         <td>{{ partida.usuario_email }}</td>
-        <td>{{ partida.puntaje }}</td>
+        <td>{{ partida.puntaje | puntos  }}</td>
         <td>{{ partida.resultado }}</td>
       </tr>
     </table>
@@ -43,7 +43,7 @@
       </tr>
       <tr *ngFor="let partida of preguntados">
         <td>{{ partida.usuario_email }}</td>
-        <td>{{ partida.puntaje }}</td>
+        <td>{{ partida.puntaje | puntos  }}</td>
         <td>{{ partida.resultado }}</td>
       </tr>
     </table>
@@ -59,7 +59,7 @@
       </tr>
       <tr *ngFor="let partida of ahorcado">
         <td>{{ partida.usuario_email }}</td>
-        <td>{{ partida.puntaje }}</td>
+        <td>{{ partida.puntaje | puntos  }}</td>
         <td>{{ partida.resultado }}</td>
       </tr>
     </table>

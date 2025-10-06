@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SupabaseService } from '../../services/supabase';
+import { PuntosPipe } from '../../pipes/puntos-pipe';
 
 @Component({
   selector: 'app-black-jack',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule,PuntosPipe],
   templateUrl: './black-jack.html',
   styleUrls: ['./black-jack.css']
 })
