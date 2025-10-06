@@ -16,6 +16,7 @@ export class MayorMenor implements OnInit {
   cartasAcertadas: number = 0;
   totalIntentos: number = 0;
   intentosMax: number = 10;
+  puntaje: number = 0;
   mensajeFinal: string = '';
 
   constructor(private supabase: SupabaseService) {}
@@ -76,7 +77,10 @@ export class MayorMenor implements OnInit {
     const acierto = (mayor && proximoCarta.valor > this.numeroActual.valor) ||
                     (!mayor && proximoCarta.valor < this.numeroActual.valor);
 
-    if (acierto) this.cartasAcertadas++;
+      if (acierto) {
+    this.cartasAcertadas++;
+    this.puntaje += 10; 
+  }
     this.totalIntentos++;
     this.siguienteNumero();
 
@@ -101,6 +105,7 @@ export class MayorMenor implements OnInit {
   reiniciarJuego() {
     this.cartasAcertadas = 0;
     this.totalIntentos = 0;
+    this.puntaje = 0;
     this.mensajeFinal = '';
     this.crearBaraja();
     this.siguienteNumero();
