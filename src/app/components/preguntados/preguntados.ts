@@ -1,7 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, NgZone } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HttpClient } from '@angular/common/http';
-import { TranslateService } from '../../services/translate.service';
+import { SupabaseService } from '../../services/supabase';
 
 @Component({
   selector: 'app-preguntados',
@@ -14,70 +13,15 @@ export class Preguntados implements OnInit {
   preguntas: Pregunta[] = [];
   cargando = true;
   preguntaActualIndex = 0;
-  puntaje: number = 0;
-
-  preguntasLocales: Pregunta[] = [
-    {
-      category: 'Historia',
-      type: 'multiple',
-      difficulty: 'easy',
-      question: 'De 1940 a 1942, ¿cuál fue la capital en el exilio de Free France?',
-      correct_answer: 'Brazzaville',
-      incorrect_answers: ['Argel', 'París', 'Túnez']
-    },
-    {
-      category: 'Literatura',
-      type: 'multiple',
-      difficulty: 'easy',
-      question: '¿Cuál de estos libros no fue escrito por Karel Čapek?',
-      correct_answer: 'Viaje al centro de la tierra',
-      incorrect_answers: ['La guerra con los triples', 'R.R. (Robots Universal de Rossum)', 'Dashenka, o la vida de un cachorro']
-    },
-    {
-      category: 'Videojuegos',
-      type: 'multiple',
-      difficulty: 'easy',
-      question: 'En "Halo", ¿cuál es el nombre del planeta que la Instalación 04 órbita?',
-      correct_answer: 'Sanghelios',
-      incorrect_answers: ['Límite', 'Sustancia', 'TE']
-    },
-    {
-      category: 'Animales',
-      type: 'multiple',
-      difficulty: 'easy',
-      question: '¿Cuál de los siguientes no es una serpiente venenosa?',
-      correct_answer: 'Pitón reticulada',
-      incorrect_answers: ['Krait malayo', 'Serpiente de mar bellada amarilla', 'Mamba negra']
-    },
-    {
-      category: 'Geografía',
-      type: 'multiple',
-      difficulty: 'easy',
-      question: '¿Qué pequeño principado se encuentra entre España y Francia?',
-      correct_answer: 'Andorra',
-      incorrect_answers: ['Liechtenstein', 'Mónaco', 'San Marino']
-    },
-    {
-      category: 'Música',
-      type: 'multiple',
-      difficulty: 'easy',
-      question: '¿Qué cantante apareció en la canción de 2015 de Jack ü "Where Are Ü Now"?',
-      correct_answer: 'Justin Bieber',
-      incorrect_answers: ['Selena Gomez', 'Ellie Goulding', 'El Weeknd']
-    },
-    {
-      category: 'Videojuegos',
-      type: 'multiple',
-      difficulty: 'easy',
-      question: '¿Cuál es el nombre del desarrollador de juegos que creó "Call of Duty: Zombies"?',
-      correct_answer: 'Treyarch',
-      incorrect_answers: ['Juegos Sledgehammer', 'Barrio infinito', 'Perro travieso']
-    }
-  ];
+  puntaje = 0;
+  opcionesActuales: string[] = [];
+  limitePreguntas = 10; // preguntas por partida
+  juegoTerminado = false; // control del final del juego
+  preguntasUsadas: Set<number> = new Set(); // IDs de preguntas ya usadas
 
   constructor(
-    private http: HttpClient,
-    private translateService: TranslateService
+    private supabase: SupabaseService,
+    private ngZone: NgZone
   ) {}
 
   ngOnInit(): void {
@@ -86,77 +30,84 @@ export class Preguntados implements OnInit {
 
   async cargarPreguntas() {
     this.cargando = true;
-
-    if (this.preguntasLocales.length > 0) {
-      this.preguntas = this.preguntasLocales;
-      this.cargando = false;
-      return;
-    }
+    this.juegoTerminado = false;
+    this.preguntasUsadas.clear();
+    this.preguntaActualIndex = 0;
 
     try {
-      const url = 'https://opentdb.com/api.php?amount=70&type=multiple';
-      const data: any = await this.http.get(url).toPromise();
+      const { data, error } = await this.supabase.client
+        .from('preguntas')
+        .select('*');
 
-      if (data?.results?.length) {
-        this.preguntas = await Promise.all(
-          data.results.map(async (pregunta: Pregunta) => {
-            pregunta.question = await this.translateService.traducir(pregunta.question, 'es');
-            pregunta.correct_answer = await this.translateService.traducir(pregunta.correct_answer, 'es');
-            pregunta.incorrect_answers = await Promise.all(
-              pregunta.incorrect_answers.map(async (resp: string) =>
-                this.translateService.traducir(resp, 'es')
-              )
-            );
-            return pregunta;
-          })
-        );
+      if (error) throw error;
+
+      if (data && Array.isArray(data) && data.length) {
+        const preguntasMezcladas = this.shuffle(data);
+        this.ngZone.run(() => {
+          this.preguntas = preguntasMezcladas.slice(0, this.limitePreguntas);
+          this.setPreguntaActual();
+          this.cargando = false;
+        });
+      } else {
+        console.warn("No hay preguntas en la base");
+        this.ngZone.run(() => this.cargando = false);
       }
-    } catch (error) {
-      console.error('Error cargando preguntas:', error);
-    } finally {
-      this.cargando = false;
+    } catch (err) {
+      console.error("Error cargando preguntas:", err);
+      this.ngZone.run(() => this.cargando = false);
     }
   }
 
-  mezclarOpciones(pregunta: Pregunta): string[] {
-    return this.shuffle([pregunta.correct_answer, ...pregunta.incorrect_answers]);
+  setPreguntaActual() {
+    if (this.preguntaActual) {
+      this.preguntasUsadas.add(this.preguntaActual.id);
+      this.opcionesActuales = this.shuffle([
+        this.preguntaActual.correct_answer,
+        ...this.preguntaActual.incorrect_answers
+      ]);
+    }
   }
 
-  shuffle(array: string[]): string[] {
+  shuffle(array: any[]): any[] {
     return array.sort(() => Math.random() - 0.5);
   }
 
-  verificarRespuesta(pregunta: Pregunta, respuesta: string) {
-    if (respuesta === pregunta.correct_answer) {
+  verificarRespuesta(respuesta: string) {
+    if (!this.preguntaActual) return;
+
+    if (respuesta === this.preguntaActual.correct_answer) {
       this.puntaje += 10;
-      alert('✅ ¡Respuesta correcta!');
+      alert("✅ ¡Respuesta correcta!");
     } else {
-      alert('❌ Respuesta incorrecta');
+      alert("❌ Respuesta incorrecta");
     }
 
     this.siguientePregunta();
   }
 
   siguientePregunta() {
-    if (this.preguntaActualIndex < this.preguntas.length - 1) {
+    if (this.preguntaActualIndex < this.limitePreguntas - 1) {
       this.preguntaActualIndex++;
+      this.setPreguntaActual();
     } else {
-      alert(`🎉 Juego terminado. Tu puntaje final: ${this.puntaje}`);
-      this.reiniciarJuego();
+      this.juegoTerminado = true;
     }
   }
 
   reiniciarJuego() {
     this.puntaje = 0;
     this.preguntaActualIndex = 0;
+    this.juegoTerminado = false;
+    this.cargarPreguntas();
   }
 
-  get preguntaActual(): Pregunta {
-    return this.preguntas[this.preguntaActualIndex];
+  get preguntaActual(): Pregunta | null {
+    return this.preguntas[this.preguntaActualIndex] || null;
   }
 }
 
-interface Pregunta {
+export interface Pregunta {
+  id: number;
   category: string;
   type: string;
   difficulty: string;
@@ -164,6 +115,14 @@ interface Pregunta {
   correct_answer: string;
   incorrect_answers: string[];
 }
+
+
+
+
+
+
+
+
 
 
 

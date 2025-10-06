@@ -1,25 +1,25 @@
 <div *ngIf="cargando">Cargando preguntas...</div>
 
-<div *ngIf="!cargando && preguntas.length">
-  
-  <h2>Puntaje: {{ puntaje }}</h2>
+<div *ngIf="!cargando && !juegoTerminado">
+  <h2>Pregunta {{ preguntaActualIndex + 1 }} de {{ limitePreguntas }}</h2>
+  <p>{{ preguntaActual?.question }}</p>
 
-  
-  <h3>{{ preguntaActual.question }}</h3>
+  <div *ngFor="let opcion of opcionesActuales">
+    <button (click)="verificarRespuesta(opcion)">
+      {{ opcion }}
+    </button>
+  </div>
 
-  
-  <ul>
-    <li *ngFor="let opcion of mezclarOpciones(preguntaActual)">
-      <button (click)="verificarRespuesta(preguntaActual, opcion)">
-        {{ opcion }}
-      </button>
-    </li>
-  </ul>
+  <p>Puntaje: {{ puntaje }}</p>
 </div>
 
-<div *ngIf="!cargando && !preguntas.length">
-  No hay preguntas disponibles.
+<div *ngIf="juegoTerminado">
+  <h2>🎉 ¡Juego terminado!</h2>
+  <p>Tu puntaje final es: {{ puntaje }}</p>
+  <button (click)="reiniciarJuego()">Reiniciar Juego</button>
 </div>
+
+
 
 
 
