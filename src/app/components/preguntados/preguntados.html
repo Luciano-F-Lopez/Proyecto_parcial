@@ -1,6 +1,18 @@
 <div *ngIf="cargando">Cargando preguntas...</div>
 
-<div *ngIf="!cargando && !juegoTerminado">
+<!-- Selección de categoría con botones -->
+<div *ngIf="!cargando && preguntas.length === 0 && !juegoTerminado">
+  <h2>Selecciona la categoría</h2>
+  <div class="categoria-buttons">
+    <button (click)="iniciarJuego('todas')">Todas</button>
+    <button *ngFor="let cat of categorias" (click)="iniciarJuego(cat)">
+      {{cat}}
+    </button>
+  </div>
+</div>
+
+<!-- Juego en progreso -->
+<div *ngIf="!cargando && !juegoTerminado && preguntas.length > 0">
   <h2>Pregunta {{ preguntaActualIndex + 1 }} de {{ limitePreguntas }}</h2>
   <p>{{ preguntaActual?.question }}</p>
 
@@ -13,6 +25,7 @@
   <p>Puntaje: {{ puntaje | puntos }}</p>
 </div>
 
+<!-- Juego terminado -->
 <div *ngIf="juegoTerminado">
   <h2>🎉 ¡Juego terminado!</h2>
   <p>Tu puntaje final es: {{ puntaje | puntos }}</p>
@@ -20,6 +33,8 @@
 </div>
 
 <app-sala-chat></app-sala-chat>
+
+
 
 
 

@@ -1,0 +1,1506 @@
+[
+  {
+    "id": 1,
+    "category": "Historia",
+    "type": "multiple",
+    "difficulty": "easy",
+    "question": "¿Quién descubrió América?",
+    "correct_answer": "Cristóbal Colón",
+    "incorrect_answers": [
+      "Magallanes",
+      "Pizarro",
+      "Cortés"
+    ]
+  },
+  {
+    "id": 2,
+    "category": "Ciencia",
+    "type": "multiple",
+    "difficulty": "easy",
+    "question": "¿Cuál es el planeta más grande del sistema solar?",
+    "correct_answer": "Júpiter",
+    "incorrect_answers": [
+      "Saturno",
+      "Tierra",
+      "Marte"
+    ]
+  },
+  {
+    "id": 3,
+    "category": "Ciencia",
+    "type": "multiple",
+    "difficulty": "medium",
+    "question": "¿Cuál es el metal más ligero?",
+    "correct_answer": "Litio",
+    "incorrect_answers": [
+      "Hierro",
+      "Plomo",
+      "Aluminio"
+    ]
+  },
+  {
+    "id": 4,
+    "category": "Historia",
+    "type": "multiple",
+    "difficulty": "medium",
+    "question": "¿Quién escribió \"El Príncipe\"?",
+    "correct_answer": "Nicolás Maquiavelo",
+    "incorrect_answers": [
+      "Platón",
+      "Aristóteles",
+      "Tomás Moro"
+    ]
+  },
+  {
+    "id": 5,
+    "category": "Geografía",
+    "type": "multiple",
+    "difficulty": "medium",
+    "question": "¿Qué país tiene más islas en el mundo?",
+    "correct_answer": "Suecia",
+    "incorrect_answers": [
+      "Filipinas",
+      "Indonesia",
+      "Canadá"
+    ]
+  },
+  {
+    "id": 6,
+    "category": "Arte",
+    "type": "multiple",
+    "difficulty": "medium",
+    "question": "¿En qué siglo nació Rembrandt?",
+    "correct_answer": "Siglo XVII",
+    "incorrect_answers": [
+      "Siglo XVI",
+      "Siglo XVIII",
+      "Siglo XIX"
+    ]
+  },
+  {
+    "id": 7,
+    "category": "Deportes",
+    "type": "multiple",
+    "difficulty": "medium",
+    "question": "¿Cuántos puntos vale un gol en hockey sobre césped?",
+    "correct_answer": "1",
+    "incorrect_answers": [
+      "2",
+      "3",
+      "4"
+    ]
+  },
+  {
+    "id": 9,
+    "category": "Ciencia",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "¿Qué partícula subatómica determina el elemento químico?",
+    "correct_answer": "Protón",
+    "incorrect_answers": [
+      "Neutrón",
+      "Electrón",
+      "Quark"
+    ]
+  },
+  {
+    "id": 10,
+    "category": "Historia",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "¿En qué año se firmó la Declaración de Independencia de EE.UU.?",
+    "correct_answer": "1776",
+    "incorrect_answers": [
+      "1783",
+      "1754",
+      "1801"
+    ]
+  },
+  {
+    "id": 11,
+    "category": "Geografía",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "¿Cuál es el desierto más grande del mundo?",
+    "correct_answer": "Desierto de la Antártida",
+    "incorrect_answers": [
+      "Sahara",
+      "Gobi",
+      "Kalahari"
+    ]
+  },
+  {
+    "id": 12,
+    "category": "Arte",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "¿Qué técnica utilizaba Jackson Pollock?",
+    "correct_answer": "Action Painting",
+    "incorrect_answers": [
+      "Pointillismo",
+      "Fresco",
+      "Impresionismo"
+    ]
+  },
+  {
+    "id": 13,
+    "category": "Deportes",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "¿Cuántos sets se juegan en un Grand Slam masculino?",
+    "correct_answer": "5",
+    "incorrect_answers": [
+      "3",
+      "4",
+      "6"
+    ]
+  },
+  {
+    "id": 15,
+    "category": "Ciencia",
+    "type": "multiple",
+    "difficulty": "medium",
+    "question": "¿Qué gas se utiliza en los globos para elevarse?",
+    "correct_answer": "Helio",
+    "incorrect_answers": [
+      "Hidrógeno",
+      "Oxígeno",
+      "Nitrógeno"
+    ]
+  },
+  {
+    "id": 16,
+    "category": "Historia",
+    "type": "multiple",
+    "difficulty": "medium",
+    "question": "¿Cuál fue la primera civilización conocida?",
+    "correct_answer": "Sumeria",
+    "incorrect_answers": [
+      "Egipcia",
+      "China",
+      "Maya"
+    ]
+  },
+  {
+    "id": 17,
+    "category": "Geografía",
+    "type": "multiple",
+    "difficulty": "medium",
+    "question": "¿Cuál es la montaña más alta de América del Norte?",
+    "correct_answer": "Denali",
+    "incorrect_answers": [
+      "Montaña Logan",
+      "Monte Saint Elias",
+      "Monte Whitney"
+    ]
+  },
+  {
+    "id": 18,
+    "category": "Arte",
+    "type": "multiple",
+    "difficulty": "medium",
+    "question": "¿Qué pintor español fue maestro del surrealismo?",
+    "correct_answer": "Salvador Dalí",
+    "incorrect_answers": [
+      "Francisco Goya",
+      "Diego Velázquez",
+      "Pablo Picasso"
+    ]
+  },
+  {
+    "id": 19,
+    "category": "Deportes",
+    "type": "multiple",
+    "difficulty": "medium",
+    "question": "¿En qué deporte se utiliza un disco llamado puck?",
+    "correct_answer": "Hockey sobre hielo",
+    "incorrect_answers": [
+      "Hockey sobre césped",
+      "Fútbol",
+      "Rugby"
+    ]
+  },
+  {
+    "id": 21,
+    "category": "Ciencia",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "¿Qué velocidad alcanza la luz en el vacío?",
+    "correct_answer": "299,792 km/s",
+    "incorrect_answers": [
+      "300,000 km/s",
+      "150,000 km/s",
+      "1,080,000 km/s"
+    ]
+  },
+  {
+    "id": 22,
+    "category": "Historia",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "¿Quién fue el último emperador de China?",
+    "correct_answer": "Puyi",
+    "incorrect_answers": [
+      "Qin Shi Huang",
+      "Kangxi",
+      "Xuanwu"
+    ]
+  },
+  {
+    "id": 23,
+    "category": "Geografía",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "¿Cuál es el lago más profundo del mundo?",
+    "correct_answer": "Lago Baikal",
+    "incorrect_answers": [
+      "Lago Tanganica",
+      "Lago Superior",
+      "Lago Victoria"
+    ]
+  },
+  {
+    "id": 24,
+    "category": "Arte",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "¿Cuál fue la principal técnica de los frescos renacentistas?",
+    "correct_answer": "Buon fresco",
+    "incorrect_answers": [
+      "Fresco secco",
+      "Óleo",
+      "Tempera"
+    ]
+  },
+  {
+    "id": 25,
+    "category": "Deportes",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "¿Qué país ha ganado más Copas Mundiales de Fútbol?",
+    "correct_answer": "Brasil",
+    "incorrect_answers": [
+      "Alemania",
+      "Italia",
+      "Argentina"
+    ]
+  },
+  {
+    "id": 27,
+    "category": "Ciencia",
+    "type": "multiple",
+    "difficulty": "medium",
+    "question": "¿Cuál es el órgano más grande del cuerpo humano?",
+    "correct_answer": "Piel",
+    "incorrect_answers": [
+      "Hígado",
+      "Pulmón",
+      "Corazón"
+    ]
+  },
+  {
+    "id": 28,
+    "category": "Historia",
+    "type": "multiple",
+    "difficulty": "medium",
+    "question": "¿Quién fue Napoleón Bonaparte?",
+    "correct_answer": "Emperador de Francia",
+    "incorrect_answers": [
+      "Rey de España",
+      "Presidente de Italia",
+      "Príncipe de Rusia"
+    ]
+  },
+  {
+    "id": 29,
+    "category": "Geografía",
+    "type": "multiple",
+    "difficulty": "medium",
+    "question": "¿Cuál es el país más pequeño del mundo?",
+    "correct_answer": "Vaticano",
+    "incorrect_answers": [
+      "Mónaco",
+      "Nauru",
+      "San Marino"
+    ]
+  },
+  {
+    "id": 30,
+    "category": "Arte",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "¿Qué movimiento artístico tuvo lugar a finales del siglo XIX?",
+    "correct_answer": "Impresionismo",
+    "incorrect_answers": [
+      "Cubismo",
+      "Surrealismo",
+      "Expresionismo"
+    ]
+  },
+  {
+    "id": 31,
+    "category": "Deportes",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "¿En qué año se creó la NBA?",
+    "correct_answer": "1946",
+    "incorrect_answers": [
+      "1936",
+      "1950",
+      "1960"
+    ]
+  },
+  {
+    "id": 33,
+    "category": "Gamer",
+    "type": "multiple",
+    "difficulty": "medium",
+    "question": "¿En qué año se lanzó \"The Witcher 3: Wild Hunt\"?",
+    "correct_answer": "2015",
+    "incorrect_answers": [
+      "2013",
+      "2014",
+      "2016"
+    ]
+  },
+  {
+    "id": 34,
+    "category": "Gamer",
+    "type": "multiple",
+    "difficulty": "medium",
+    "question": "¿Cuál es la compañía creadora de la saga \"Halo\"?",
+    "correct_answer": "Bungie",
+    "incorrect_answers": [
+      "343 Industries",
+      "Epic Games",
+      "Valve"
+    ]
+  },
+  {
+    "id": 35,
+    "category": "Gamer",
+    "type": "multiple",
+    "difficulty": "medium",
+    "question": "¿Qué personaje es protagonista en \"God of War\"?",
+    "correct_answer": "Kratos",
+    "incorrect_answers": [
+      "Atreus",
+      "Zeus",
+      "Ares"
+    ]
+  },
+  {
+    "id": 36,
+    "category": "Gamer",
+    "type": "multiple",
+    "difficulty": "medium",
+    "question": "¿Cuál es la arma icónica de \"Half-Life\"?",
+    "correct_answer": "Gravity Gun",
+    "incorrect_answers": [
+      "Crowbar",
+      "Pulse Rifle",
+      "Crossbow"
+    ]
+  },
+  {
+    "id": 37,
+    "category": "Gamer",
+    "type": "multiple",
+    "difficulty": "medium",
+    "question": "¿Qué juego popular introdujo el battle royale masivo por primera vez?",
+    "correct_answer": "PUBG",
+    "incorrect_answers": [
+      "Fortnite",
+      "Apex Legends",
+      "Call of Duty: Warzone"
+    ]
+  },
+  {
+    "id": 38,
+    "category": "Gamer",
+    "type": "multiple",
+    "difficulty": "medium",
+    "question": "¿En qué ciudad se desarrolla \"Cyberpunk 2077\"?",
+    "correct_answer": "Night City",
+    "incorrect_answers": [
+      "Los Angeles",
+      "Neo Tokyo",
+      "New York"
+    ]
+  },
+  {
+    "id": 39,
+    "category": "Gamer",
+    "type": "multiple",
+    "difficulty": "medium",
+    "question": "¿Cuál es el nombre real del protagonista de \"Metal Gear Solid\"?",
+    "correct_answer": "Solid Snake",
+    "incorrect_answers": [
+      "Raiden",
+      "Big Boss",
+      "Liquid Snake"
+    ]
+  },
+  {
+    "id": 40,
+    "category": "Gamer",
+    "type": "multiple",
+    "difficulty": "medium",
+    "question": "¿Qué juego popular usa un cubo llamado “Companion Cube”?",
+    "correct_answer": "Portal",
+    "incorrect_answers": [
+      "Half-Life",
+      "Team Fortress",
+      "Left 4 Dead"
+    ]
+  },
+  {
+    "id": 41,
+    "category": "Gamer",
+    "type": "multiple",
+    "difficulty": "medium",
+    "question": "¿Cuál es el nombre del desarrollador de \"Minecraft\"?",
+    "correct_answer": "Markus Persson",
+    "incorrect_answers": [
+      "Notch",
+      "Jens Bergensten",
+      "Mojang"
+    ]
+  },
+  {
+    "id": 42,
+    "category": "Gamer",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "¿Cuál fue el primer juego desarrollado por CD Projekt RED?",
+    "correct_answer": "The Witcher",
+    "incorrect_answers": [
+      "Gwent",
+      "Cyberpunk 2077",
+      "The Witcher 2"
+    ]
+  },
+  {
+    "id": 43,
+    "category": "Gamer",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "En \"Dark Souls\", ¿qué objeto revive al jugador?",
+    "correct_answer": "Humanity",
+    "incorrect_answers": [
+      "Estus Flask",
+      "Soul of Cinder",
+      "Ring of Favor"
+    ]
+  },
+  {
+    "id": 44,
+    "category": "Gamer",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "¿Cuál es la ciudad principal en \"Grand Theft Auto V\"?",
+    "correct_answer": "Los Santos",
+    "incorrect_answers": [
+      "Liberty City",
+      "Vice City",
+      "San Fierro"
+    ]
+  },
+  {
+    "id": 45,
+    "category": "Gamer",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "En \"The Legend of Zelda\", ¿qué objeto abre la Mazmorra del Agua?",
+    "correct_answer": "Hookshot",
+    "incorrect_answers": [
+      "Boomerang",
+      "Master Sword",
+      "Bombs"
+    ]
+  },
+  {
+    "id": 46,
+    "category": "Gamer",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "¿Cómo se llama la raza enemiga principal en \"Starcraft\"?",
+    "correct_answer": "Zerg",
+    "incorrect_answers": [
+      "Protoss",
+      "Terran",
+      "Hydralisk"
+    ]
+  },
+  {
+    "id": 47,
+    "category": "Gamer",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "¿Cuál es el nombre del protagonista de \"Red Dead Redemption 2\"?",
+    "correct_answer": "Arthur Morgan",
+    "incorrect_answers": [
+      "John Marston",
+      "Dutch van der Linde",
+      "Micah Bell"
+    ]
+  },
+  {
+    "id": 48,
+    "category": "Gamer",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "En \"Overwatch\", ¿qué héroe puede teletransportarse?",
+    "correct_answer": "Tracer",
+    "incorrect_answers": [
+      "Reinhardt",
+      "Mercy",
+      "Genji"
+    ]
+  },
+  {
+    "id": 49,
+    "category": "Gamer",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "¿Qué juego incluye la mecánica de “bullet time”?",
+    "correct_answer": "Max Payne",
+    "incorrect_answers": [
+      "Hitman",
+      "Dishonored",
+      "Sleeping Dogs"
+    ]
+  },
+  {
+    "id": 50,
+    "category": "Gamer",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "En \"Resident Evil\", ¿cómo se llama el virus que convierte humanos en zombis?",
+    "correct_answer": "T-virus",
+    "incorrect_answers": [
+      "G-virus",
+      "C-virus",
+      "Nemesis"
+    ]
+  },
+  {
+    "id": 51,
+    "category": "Gamer",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "¿Cuál es el nombre de la ciudad en la que se desarrolla \"Assassins Creed II\"?",
+    "correct_answer": "Venecia",
+    "incorrect_answers": [
+      "Florencia",
+      "Roma",
+      "Atenas"
+    ]
+  },
+  {
+    "id": 52,
+    "category": "Gamer",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "En \"Final Fantasy VII\", ¿qué arma usa Cloud Strife?",
+    "correct_answer": "Buster Sword",
+    "incorrect_answers": [
+      "Masamune",
+      "Excalibur",
+      "Gunblade"
+    ]
+  },
+  {
+    "id": 53,
+    "category": "Gamer",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "¿Cuál es el nombre del villano en \"Half-Life 2\"?",
+    "correct_answer": "Dr. Breen",
+    "incorrect_answers": [
+      "G-Man",
+      "Combine",
+      "Alyx Vance"
+    ]
+  },
+  {
+    "id": 54,
+    "category": "Gamer",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "¿Qué arma es icónica de \"Doom\"?",
+    "correct_answer": "Shotgun",
+    "incorrect_answers": [
+      "Chainsaw",
+      "BFG 9000",
+      "Rocket Launcher"
+    ]
+  },
+  {
+    "id": 55,
+    "category": "Gamer",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "En \"Call of Duty\", ¿qué misión es famosa por su ataque sorpresa en la Segunda Guerra Mundial?",
+    "correct_answer": "Nacht der Untoten",
+    "incorrect_answers": [
+      "Shock and Awe",
+      "Blackout",
+      "All Ghillied Up"
+    ]
+  },
+  {
+    "id": 56,
+    "category": "Gamer",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "¿Qué juego de Ubisoft está ambientado en la antigua Grecia?",
+    "correct_answer": "Assassins Creed Odyssey",
+    "incorrect_answers": [
+      "Assassins Creed Origins",
+      "Far Cry 3",
+      "Prince of Persia"
+    ]
+  },
+  {
+    "id": 57,
+    "category": "Gamer",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "¿Cómo se llama la protagonista femenina de \"Horizon Zero Dawn\"?",
+    "correct_answer": "Aloy",
+    "incorrect_answers": [
+      "Lara Croft",
+      "Ciri",
+      "Faith"
+    ]
+  },
+  {
+    "id": 58,
+    "category": "Gamer",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "¿Qué saga tiene como enemigos principales a los Covenant?",
+    "correct_answer": "Halo",
+    "incorrect_answers": [
+      "Destiny",
+      "Mass Effect",
+      "Starcraft"
+    ]
+  },
+  {
+    "id": 59,
+    "category": "Gamer",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "En \"Persona 5\", ¿qué alter ego usa el protagonista?",
+    "correct_answer": "Joker",
+    "incorrect_answers": [
+      "Skull",
+      "Fox",
+      "Crow"
+    ]
+  },
+  {
+    "id": 60,
+    "category": "Gamer",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "¿Qué juego lanzó Valve en 2004 que revolucionó los shooters multijugador?",
+    "correct_answer": "Counter-Strike: Source",
+    "incorrect_answers": [
+      "Half-Life 2",
+      "Team Fortress 2",
+      "Left 4 Dead"
+    ]
+  },
+  {
+    "id": 61,
+    "category": "Gamer",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "¿Cuál es el nombre del reino en \"The Legend of Zelda: Breath of the Wild\"?",
+    "correct_answer": "Hyrule",
+    "incorrect_answers": [
+      "Termina",
+      "Lorule",
+      "Labrynna"
+    ]
+  }, {
+    "id": 62,
+    "category": "Historia",
+    "type": "multiple",
+    "difficulty": "medium",
+    "question": "¿Cuál fue la capital del Imperio Inca?",
+    "correct_answer": "Cusco",
+    "incorrect_answers": [
+      "Cuzco",
+      "Lima",
+      "Quito"
+    ]
+  },
+  {
+    "id": 63,
+    "category": "Historia",
+    "type": "multiple",
+    "difficulty": "medium",
+    "question": "¿Quién fue el líder de la Revolución Rusa?",
+    "correct_answer": "Lenin",
+    "incorrect_answers": [
+      "Trotsky",
+      "Stalin",
+      "Kerensky"
+    ]
+  },
+  {
+    "id": 64,
+    "category": "Historia",
+    "type": "multiple",
+    "difficulty": "medium",
+    "question": "¿En qué año cayó el Muro de Berlín?",
+    "correct_answer": "1989",
+    "incorrect_answers": [
+      "1991",
+      "1987",
+      "1990"
+    ]
+  },
+  {
+    "id": 65,
+    "category": "Historia",
+    "type": "multiple",
+    "difficulty": "medium",
+    "question": "¿Cuál fue la primera dinastía china?",
+    "correct_answer": "Xia",
+    "incorrect_answers": [
+      "Shang",
+      "Han",
+      "Qin"
+    ]
+  },
+  {
+    "id": 66,
+    "category": "Historia",
+    "type": "multiple",
+    "difficulty": "medium",
+    "question": "¿Quién escribió “La Iliada”?",
+    "correct_answer": "Homero",
+    "incorrect_answers": [
+      "Sócrates",
+      "Platón",
+      "Aristóteles"
+    ]
+  },
+  {
+    "id": 67,
+    "category": "Historia",
+    "type": "multiple",
+    "difficulty": "medium",
+    "question": "¿Qué civilización construyó Machu Picchu?",
+    "correct_answer": "Inca",
+    "incorrect_answers": [
+      "Maya",
+      "Azteca",
+      "Olmeca"
+    ]
+  },
+  {
+    "id": 68,
+    "category": "Historia",
+    "type": "multiple",
+    "difficulty": "medium",
+    "question": "¿En qué batalla Napoleón fue derrotado definitivamente?",
+    "correct_answer": "Waterloo",
+    "incorrect_answers": [
+      "Austerlitz",
+      "Borodino",
+      "Leipzig"
+    ]
+  },
+  {
+    "id": 69,
+    "category": "Historia",
+    "type": "multiple",
+    "difficulty": "medium",
+    "question": "¿Quién fundó Roma según la leyenda?",
+    "correct_answer": "Rómulo y Remo",
+    "incorrect_answers": [
+      "Julio César",
+      "Numa Pompilio",
+      "Augusto"
+    ]
+  },
+  {
+    "id": 70,
+    "category": "Historia",
+    "type": "multiple",
+    "difficulty": "medium",
+    "question": "¿Cuál fue la principal causa de la Primera Guerra Mundial?",
+    "correct_answer": "Asesinato de Francisco Fernando",
+    "incorrect_answers": [
+      "Imperialismo",
+      "Nacionalismo",
+      "Economía"
+    ]
+  },
+  {
+    "id": 71,
+    "category": "Historia",
+    "type": "multiple",
+    "difficulty": "medium",
+    "question": "¿En qué año comenzó la Edad Media?",
+    "correct_answer": "476 d.C.",
+    "incorrect_answers": [
+      "500 d.C.",
+      "400 d.C.",
+      "600 d.C."
+    ]
+  },
+  {
+    "id": 72,
+    "category": "Ciencia",
+    "type": "multiple",
+    "difficulty": "medium",
+    "question": "¿Qué planeta tiene más lunas?",
+    "correct_answer": "Júpiter",
+    "incorrect_answers": [
+      "Saturno",
+      "Urano",
+      "Neptuno"
+    ]
+  },
+  {
+    "id": 73,
+    "category": "Ciencia",
+    "type": "multiple",
+    "difficulty": "medium",
+    "question": "¿Cuál es el elemento más abundante en el universo?",
+    "correct_answer": "Hidrógeno",
+    "incorrect_answers": [
+      "Helio",
+      "Oxígeno",
+      "Carbono"
+    ]
+  },
+  {
+    "id": 74,
+    "category": "Ciencia",
+    "type": "multiple",
+    "difficulty": "medium",
+    "question": "¿Qué tipo de sangre es considerado donante universal?",
+    "correct_answer": "O negativo",
+    "incorrect_answers": [
+      "A positivo",
+      "B negativo",
+      "AB positivo"
+    ]
+  },
+  {
+    "id": 75,
+    "category": "Ciencia",
+    "type": "multiple",
+    "difficulty": "medium",
+    "question": "¿Qué órgano produce insulina?",
+    "correct_answer": "Páncreas",
+    "incorrect_answers": [
+      "Hígado",
+      "Riñón",
+      "Corazón"
+    ]
+  },
+  {
+    "id": 76,
+    "category": "Ciencia",
+    "type": "multiple",
+    "difficulty": "medium",
+    "question": "¿Cuál es la molécula que transporta oxígeno en la sangre?",
+    "correct_answer": "Hemoglobina",
+    "incorrect_answers": [
+      "Mioglobina",
+      "Colágeno",
+      "Melanina"
+    ]
+  },
+  {
+    "id": 77,
+    "category": "Ciencia",
+    "type": "multiple",
+    "difficulty": "medium",
+    "question": "¿Qué tipo de energía produce una central hidroeléctrica?",
+    "correct_answer": "Energía eléctrica",
+    "incorrect_answers": [
+      "Energía térmica",
+      "Energía solar",
+      "Energía eólica"
+    ]
+  },
+  {
+    "id": 78,
+    "category": "Ciencia",
+    "type": "multiple",
+    "difficulty": "medium",
+    "question": "¿Qué partícula tiene carga negativa?",
+    "correct_answer": "Electrón",
+    "incorrect_answers": [
+      "Protón",
+      "Neutrón",
+      "Positrón"
+    ]
+  },
+  {
+    "id": 79,
+    "category": "Ciencia",
+    "type": "multiple",
+    "difficulty": "medium",
+    "question": "¿Qué científico formuló la teoría de la relatividad?",
+    "correct_answer": "Albert Einstein",
+    "incorrect_answers": [
+      "Isaac Newton",
+      "Niels Bohr",
+      "Galileo Galilei"
+    ]
+  },
+  {
+    "id": 80,
+    "category": "Ciencia",
+    "type": "multiple",
+    "difficulty": "medium",
+    "question": "¿Cuál es el metal más abundante en la corteza terrestre?",
+    "correct_answer": "Aluminio",
+    "incorrect_answers": [
+      "Hierro",
+      "Cobre",
+      "Magnesio"
+    ]
+  },
+  {
+    "id": 81,
+    "category": "Ciencia",
+    "type": "multiple",
+    "difficulty": "medium",
+    "question": "¿Qué fenómeno provoca el arcoíris?",
+    "correct_answer": "Refracción y reflexión de la luz",
+    "incorrect_answers": [
+      "Difracción de la luz",
+      "Dispersión de partículas",
+      "Reflexión total"
+    ]
+  }, {
+    "id": 82,
+    "category": "Geografía",
+    "type": "multiple",
+    "difficulty": "medium",
+    "question": "¿Cuál es el río más largo de América del Sur?",
+    "correct_answer": "Amazonas",
+    "incorrect_answers": [
+      "Orinoco",
+      "Paraná",
+      "Magdalena"
+    ]
+  },
+  {
+    "id": 83,
+    "category": "Geografía",
+    "type": "multiple",
+    "difficulty": "medium",
+    "question": "¿Cuál es la capital de Canadá?",
+    "correct_answer": "Ottawa",
+    "incorrect_answers": [
+      "Toronto",
+      "Vancouver",
+      "Montreal"
+    ]
+  },
+  {
+    "id": 84,
+    "category": "Geografía",
+    "type": "multiple",
+    "difficulty": "medium",
+    "question": "¿Cuál es el continente más pequeño?",
+    "correct_answer": "Oceanía",
+    "incorrect_answers": [
+      "Europa",
+      "Antártida",
+      "Asia"
+    ]
+  },
+  {
+    "id": 85,
+    "category": "Geografía",
+    "type": "multiple",
+    "difficulty": "medium",
+    "question": "¿Cuál es el país más grande del mundo?",
+    "correct_answer": "Rusia",
+    "incorrect_answers": [
+      "Canadá",
+      "China",
+      "Estados Unidos"
+    ]
+  },
+  {
+    "id": 86,
+    "category": "Geografía",
+    "type": "multiple",
+    "difficulty": "medium",
+    "question": "¿En qué país está el Monte Everest?",
+    "correct_answer": "Nepal",
+    "incorrect_answers": [
+      "China",
+      "India",
+      "Bután"
+    ]
+  },
+  {
+    "id": 87,
+    "category": "Geografía",
+    "type": "multiple",
+    "difficulty": "medium",
+    "question": "¿Qué océano es el más profundo?",
+    "correct_answer": "Pacífico",
+    "incorrect_answers": [
+      "Atlántico",
+      "Índico",
+      "Ártico"
+    ]
+  },
+  {
+    "id": 88,
+    "category": "Geografía",
+    "type": "multiple",
+    "difficulty": "medium",
+    "question": "¿Cuál es el país más poblado de África?",
+    "correct_answer": "Nigeria",
+    "incorrect_answers": [
+      "Egipto",
+      "Sudáfrica",
+      "Etiopía"
+    ]
+  },
+  {
+    "id": 89,
+    "category": "Geografía",
+    "type": "multiple",
+    "difficulty": "medium",
+    "question": "¿Qué país tiene más volcanes activos?",
+    "correct_answer": "Indonesia",
+    "incorrect_answers": [
+      "Japón",
+      "Italia",
+      "Chile"
+    ]
+  },
+  {
+    "id": 90,
+    "category": "Geografía",
+    "type": "multiple",
+    "difficulty": "medium",
+    "question": "¿Cuál es la capital de Nueva Zelanda?",
+    "correct_answer": "Wellington",
+    "incorrect_answers": [
+      "Auckland",
+      "Christchurch",
+      "Hamilton"
+    ]
+  },
+  {
+    "id": 91,
+    "category": "Geografía",
+    "type": "multiple",
+    "difficulty": "medium",
+    "question": "¿Qué país está ubicado entre Perú y Chile?",
+    "correct_answer": "Bolivia",
+    "incorrect_answers": [
+      "Argentina",
+      "Ecuador",
+      "Colombia"
+    ]
+  },{
+    "id": 92,
+    "category": "Arte",
+    "type": "multiple",
+    "difficulty": "medium",
+    "question": "¿Quién pintó la Capilla Sixtina?",
+    "correct_answer": "Miguel Ángel",
+    "incorrect_answers": [
+      "Leonardo da Vinci",
+      "Rafael",
+      "Donatello"
+    ]
+  },
+  {
+    "id": 93,
+    "category": "Arte",
+    "type": "multiple",
+    "difficulty": "medium",
+    "question": "¿Qué movimiento artístico representa escenas cotidianas?",
+    "correct_answer": "Realismo",
+    "incorrect_answers": [
+      "Impresionismo",
+      "Cubismo",
+      "Surrealismo"
+    ]
+  },
+  {
+    "id": 94,
+    "category": "Arte",
+    "type": "multiple",
+    "difficulty": "medium",
+    "question": "¿Qué pintor creó \"La persistencia de la memoria\"?",
+    "correct_answer": "Salvador Dalí",
+    "incorrect_answers": [
+      "Pablo Picasso",
+      "Vincent van Gogh",
+      "Claude Monet"
+    ]
+  },
+  {
+    "id": 95,
+    "category": "Arte",
+    "type": "multiple",
+    "difficulty": "medium",
+    "question": "¿Qué técnica usa capas de pintura fina para lograr luminosidad?",
+    "correct_answer": "Glaseado",
+    "incorrect_answers": [
+      "Impasto",
+      "Fresco",
+      "Esgrafiado"
+    ]
+  },
+  {
+    "id": 96,
+    "category": "Arte",
+    "type": "multiple",
+    "difficulty": "medium",
+    "question": "¿En qué país nació Vincent van Gogh?",
+    "correct_answer": "Países Bajos",
+    "incorrect_answers": [
+      "Francia",
+      "Bélgica",
+      "Alemania"
+    ]
+  },
+  {
+    "id": 97,
+    "category": "Arte",
+    "type": "multiple",
+    "difficulty": "medium",
+    "question": "¿Qué movimiento artístico surge en el siglo XX?",
+    "correct_answer": "Cubismo",
+    "incorrect_answers": [
+      "Barroco",
+      "Neoclasicismo",
+      "Romanticismo"
+    ]
+  },
+  {
+    "id": 98,
+    "category": "Arte",
+    "type": "multiple",
+    "difficulty": "medium",
+    "question": "¿Quién pintó \"La noche estrellada\"?",
+    "correct_answer": "Vincent van Gogh",
+    "incorrect_answers": [
+      "Claude Monet",
+      "Paul Cézanne",
+      "Edvard Munch"
+    ]
+  },
+  {
+    "id": 99,
+    "category": "Arte",
+    "type": "multiple",
+    "difficulty": "medium",
+    "question": "¿Qué artista es famoso por esculturas de balones gigantes?",
+    "correct_answer": "Jeff Koons",
+    "incorrect_answers": [
+      "Damien Hirst",
+      "Banksy",
+      "Anish Kapoor"
+    ]
+  },
+  {
+    "id": 100,
+    "category": "Arte",
+    "type": "multiple",
+    "difficulty": "medium",
+    "question": "¿Qué técnica emplea pintura sobre yeso húmedo?",
+    "correct_answer": "Fresco",
+    "incorrect_answers": [
+      "Óleo",
+      "Tempera",
+      "Acuarela"
+    ]
+  },
+  {
+    "id": 101,
+    "category": "Arte",
+    "type": "multiple",
+    "difficulty": "medium",
+    "question": "¿Qué movimiento artístico buscaba expresar el subconsciente?",
+    "correct_answer": "Surrealismo",
+    "incorrect_answers": [
+      "Cubismo",
+      "Expresionismo",
+      "Impresionismo"
+    ]
+  },{
+    "id": 102,
+    "category": "Deportes",
+    "type": "multiple",
+    "difficulty": "medium",
+    "question": "¿Cuántos jugadores conforman un equipo de baloncesto?",
+    "correct_answer": "5",
+    "incorrect_answers": [
+      "6",
+      "7",
+      "4"
+    ]
+  },
+  {
+    "id": 103,
+    "category": "Deportes",
+    "type": "multiple",
+    "difficulty": "medium",
+    "question": "¿En qué deporte se utiliza un disco llamado puck?",
+    "correct_answer": "Hockey sobre hielo",
+    "incorrect_answers": [
+      "Hockey sobre césped",
+      "Fútbol",
+      "Rugby"
+    ]
+  },
+  {
+    "id": 104,
+    "category": "Deportes",
+    "type": "multiple",
+    "difficulty": "medium",
+    "question": "¿Cuántos jugadores hay en un equipo de voleibol?",
+    "correct_answer": "6",
+    "incorrect_answers": [
+      "5",
+      "7",
+      "4"
+    ]
+  },
+  {
+    "id": 105,
+    "category": "Deportes",
+    "type": "multiple",
+    "difficulty": "medium",
+    "question": "¿Cuál es el país de origen del rugby?",
+    "correct_answer": "Inglaterra",
+    "incorrect_answers": [
+      "Australia",
+      "Nueva Zelanda",
+      "Sudáfrica"
+    ]
+  },
+  {
+    "id": 106,
+    "category": "Deportes",
+    "type": "multiple",
+    "difficulty": "medium",
+    "question": "¿En qué deporte se utiliza un sable?",
+    "correct_answer": "Esgrima",
+    "incorrect_answers": [
+      "Kendo",
+      "Fencing",
+      "Taekwondo"
+    ]
+  },
+  {
+    "id": 107,
+    "category": "Deportes",
+    "type": "multiple",
+    "difficulty": "medium",
+    "question": "¿Cuántos minutos dura un partido de fútbol?",
+    "correct_answer": "90",
+    "incorrect_answers": [
+      "80",
+      "100",
+      "70"
+    ]
+  },
+  {
+    "id": 108,
+    "category": "Deportes",
+    "type": "multiple",
+    "difficulty": "medium",
+    "question": "¿Qué país ganó el Mundial de Fútbol 2018?",
+    "correct_answer": "Francia",
+    "incorrect_answers": [
+      "Croacia",
+      "Brasil",
+      "Alemania"
+    ]
+  },
+  {
+    "id": 109,
+    "category": "Deportes",
+    "type": "multiple",
+    "difficulty": "medium",
+    "question": "¿Cuántos puntos vale un touchdown en fútbol americano?",
+    "correct_answer": "6",
+    "incorrect_answers": [
+      "7",
+      "3",
+      "5"
+    ]
+  },
+  {
+    "id": 110,
+    "category": "Deportes",
+    "type": "multiple",
+    "difficulty": "medium",
+    "question": "¿En qué país se originó el tenis?",
+    "correct_answer": "Francia",
+    "incorrect_answers": [
+      "Inglaterra",
+      "Estados Unidos",
+      "España"
+    ]
+  },
+  {
+    "id": 111,
+    "category": "Deportes",
+    "type": "multiple",
+    "difficulty": "medium",
+    "question": "¿Cuántos sets debe ganar un partido de tenis masculino de Grand Slam?",
+    "correct_answer": "3 de 5",
+    "incorrect_answers": [
+      "2 de 3",
+      "4 de 7",
+      "5 de 9"
+    ]
+  },
+  {
+    "id": 112,
+    "category": "Entretenimiento",
+    "type": "multiple",
+    "difficulty": "medium",
+    "question": "¿Quién interpretó a Forrest Gump?",
+    "correct_answer": "Tom Hanks",
+    "incorrect_answers": [
+      "Brad Pitt",
+      "Leonardo DiCaprio",
+      "Johnny Depp"
+    ]
+  },
+  {
+    "id": 113,
+    "category": "Entretenimiento",
+    "type": "multiple",
+    "difficulty": "medium",
+    "question": "¿Qué serie popular tiene a Jon Snow como personaje?",
+    "correct_answer": "Game of Thrones",
+    "incorrect_answers": [
+      "Vikings",
+      "The Witcher",
+      "The Crown"
+    ]
+  },
+  {
+    "id": 114,
+    "category": "Entretenimiento",
+    "type": "multiple",
+    "difficulty": "medium",
+    "question": "¿Qué director dirigió \"Inception\"?",
+    "correct_answer": "Christopher Nolan",
+    "incorrect_answers": [
+      "Steven Spielberg",
+      "James Cameron",
+      "Ridley Scott"
+    ]
+  },
+  {
+    "id": 115,
+    "category": "Entretenimiento",
+    "type": "multiple",
+    "difficulty": "medium",
+    "question": "¿Qué película ganó el Óscar a Mejor Película en 2020?",
+    "correct_answer": "Parasite",
+    "incorrect_answers": [
+      "1917",
+      "Joker",
+      "Ford v Ferrari"
+    ]
+  },
+  {
+    "id": 116,
+    "category": "Entretenimiento",
+    "type": "multiple",
+    "difficulty": "medium",
+    "question": "¿Cuál es el nombre real de Iron Man?",
+    "correct_answer": "Tony Stark",
+    "incorrect_answers": [
+      "Steve Rogers",
+      "Bruce Wayne",
+      "Clark Kent"
+    ]
+  },
+  {
+    "id": 117,
+    "category": "Entretenimiento",
+    "type": "multiple",
+    "difficulty": "medium",
+    "question": "¿En qué ciudad se desarrolla la serie \"Breaking Bad\"?",
+    "correct_answer": "Albuquerque",
+    "incorrect_answers": [
+      "Los Angeles",
+      "Phoenix",
+      "Dallas"
+    ]
+  },
+  {
+    "id": 118,
+    "category": "Entretenimiento",
+    "type": "multiple",
+    "difficulty": "medium",
+    "question": "¿Qué cantante es conocido como “El Rey del Pop”?",
+    "correct_answer": "Michael Jackson",
+    "incorrect_answers": [
+      "Elvis Presley",
+      "Prince",
+      "Madonna"
+    ]
+  },
+  {
+    "id": 119,
+    "category": "Entretenimiento",
+    "type": "multiple",
+    "difficulty": "medium",
+    "question": "¿Quién dirigió \"Jurassic Park\"?",
+    "correct_answer": "Steven Spielberg",
+    "incorrect_answers": [
+      "James Cameron",
+      "Peter Jackson",
+      "George Lucas"
+    ]
+  },
+  {
+    "id": 120,
+    "category": "Entretenimiento",
+    "type": "multiple",
+    "difficulty": "medium",
+    "question": "¿Qué serie tiene como protagonista a Walter White?",
+    "correct_answer": "Breaking Bad",
+    "incorrect_answers": [
+      "Better Call Saul",
+      "Narcos",
+      "Dexter"
+    ]
+  },
+  {
+    "id": 121,
+    "category": "Entretenimiento",
+    "type": "multiple",
+    "difficulty": "medium",
+    "question": "¿Qué película de Marvel presenta a Black Panther?",
+    "correct_answer": "Black Panther",
+    "incorrect_answers": [
+      "Avengers: Endgame",
+      "Captain America: Civil War",
+      "Iron Man"
+    ]
+  }
+]

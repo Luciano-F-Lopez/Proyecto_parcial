@@ -1,13 +1,15 @@
 import { Component, OnInit, NgZone } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { PreguntasService, Pregunta } from '../../services/preguntas';
 import { SupabaseService } from '../../services/supabase';
 import { PuntosPipe } from '../../pipes/puntos-pipe';
 import { SalaChat } from '../../components/sala-chat/sala-chat';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-preguntados',
   standalone: true,
-  imports: [CommonModule,PuntosPipe,SalaChat],
+  imports: [CommonModule, PuntosPipe, SalaChat, FormsModule],
   templateUrl: './preguntados.html',
   styleUrls: ['./preguntados.css']
 })
@@ -17,47 +19,70 @@ export class Preguntados implements OnInit {
   preguntaActualIndex = 0;
   puntaje = 0;
   opcionesActuales: string[] = [];
-  limitePreguntas = 10; 
-  juegoTerminado = false; 
-  preguntasUsadas: Set<number> = new Set(); // IDs de preguntas ya usadas
+  limitePreguntas = 10;
+  juegoTerminado = false;
+  preguntasUsadas: Set<number> = new Set();
+
+  categorias: string[] = [];
+  categoriaSeleccionada: string | null = null;
 
   constructor(
+    private preguntasService: PreguntasService,
     private supabase: SupabaseService,
     private ngZone: NgZone
   ) {}
 
   ngOnInit(): void {
+    this.cargarCategorias();
+  }
+
+  cargarCategorias() {
+    this.preguntasService.obtenerPreguntas().subscribe({
+      next: (data) => {
+        this.categorias = Array.from(new Set(data.map(p => p.category))).filter(cat => cat && cat.trim() !== "");;
+        this.cargando = false;
+      },
+      error: (err) => {
+        console.error("Error cargando categorías:", err);
+        this.cargando = false;
+      }
+    });
+  }
+
+  iniciarJuego(categoria: string) {
+    this.categoriaSeleccionada = categoria;
     this.cargarPreguntas();
   }
 
-  async cargarPreguntas() {
+  cargarPreguntas() {
     this.cargando = true;
     this.juegoTerminado = false;
     this.preguntasUsadas.clear();
     this.preguntaActualIndex = 0;
 
-    try {
-      const { data, error } = await this.supabase.client
-        .from('preguntas')
-        .select('*');
+    this.preguntasService.obtenerPreguntas().subscribe({
+      next: (data) => {
+        let preguntasFiltradas = data;
 
-      if (error) throw error;
+        // Solo filtramos si no es "todas"
+        if (this.categoriaSeleccionada && this.categoriaSeleccionada !== "todas") {
+          preguntasFiltradas = data.filter(p => p.category === this.categoriaSeleccionada);
+        }
 
-      if (data && Array.isArray(data) && data.length) {
-        const preguntasMezcladas = this.shuffle(data);
+        const preguntasMezcladas = this.shuffle(preguntasFiltradas);
+        const limite = Math.min(this.limitePreguntas, preguntasMezcladas.length);
+
         this.ngZone.run(() => {
-          this.preguntas = preguntasMezcladas.slice(0, this.limitePreguntas);
+          this.preguntas = preguntasMezcladas.slice(0, limite);
           this.setPreguntaActual();
           this.cargando = false;
         });
-      } else {
-        console.warn("No hay preguntas en la base");
-        this.ngZone.run(() => this.cargando = false);
+      },
+      error: (err) => {
+        console.error("Error cargando preguntas:", err);
+        this.cargando = false;
       }
-    } catch (err) {
-      console.error("Error cargando preguntas:", err);
-      this.ngZone.run(() => this.cargando = false);
-    }
+    });
   }
 
   setPreguntaActual() {
@@ -105,36 +130,30 @@ export class Preguntados implements OnInit {
   }
 
   async guardarPartida() {
-  const { data: user } = await this.supabase.client.auth.getUser();
+    const { data: user } = await this.supabase.client.auth.getUser();
 
-  await this.supabase.client.from('partidas').insert({
-    usuario_id: user?.user?.id,
-    usuario_email: user?.user?.email,
-    juego: 'preguntados',
-    resultado: 'finalizado',
-    puntaje: this.puntaje,
-    detalles: {
-      preguntas_respondidas: this.preguntaActualIndex + 1,
-      total_preguntas: this.limitePreguntas
-    }
-  });
-}
-
+    await this.supabase.client.from('partidas').insert({
+      usuario_id: user?.user?.id,
+      usuario_email: user?.user?.email,
+      juego: 'preguntados',
+      resultado: 'finalizado',
+      puntaje: this.puntaje,
+      detalles: {
+        preguntas_respondidas: this.preguntaActualIndex + 1,
+        total_preguntas: this.limitePreguntas,
+        categoria: this.categoriaSeleccionada
+      }
+    });
+  }
 
   get preguntaActual(): Pregunta | null {
     return this.preguntas[this.preguntaActualIndex] || null;
   }
 }
 
-export interface Pregunta {
-  id: number;
-  category: string;
-  type: string;
-  difficulty: string;
-  question: string;
-  correct_answer: string;
-  incorrect_answers: string[];
-}
+
+
+
 
 
 
