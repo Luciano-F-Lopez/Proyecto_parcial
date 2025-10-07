@@ -3,34 +3,62 @@ div {
   max-width: 1000px; 
   margin: 0 auto;    
   box-sizing: border-box;
+  background: rgba(20, 10, 40, 0.9);
+  border: 2px solid #8a2be2;
+  border-radius: 12px;
+  box-shadow: 0 0 20px #00FFFF;
 }
-
+h1{
+  background: rgba(20, 10, 40, 0.9);
+}
+h2{
+  background: rgba(20, 10, 40, 0.9);
+}
+/* Tabla */
 table {
   width: 100%;         
   table-layout: fixed; 
   border-collapse: collapse;
   margin-bottom: 20px;
+  background-color: #0f0020;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 0 15px #9d4edd;
 }
 
+/* Celdas */
 th, td {
-  border: 1px solid #444;
+  border: 1px solid #4b0082;
   padding: 8px;
   text-align: center;
   word-wrap: break-word; 
+  color: #e0d4ff;
 }
 
+/* Encabezado */
 th {
-  background-color: black;
-  color: #00FFFF;
+  background-color: #2b0055;
+  color: #c77dff;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-shadow: 0 0 6px #9d4edd;
 }
 
+/* Filas alternadas */
 tr:nth-child(even) {
-  background-color: #2f2f2f;
+  background-color: #1a0033;
 }
 
 tr:nth-child(odd) {
-  background-color: #1e1e1e;
+  background-color: #100022;
 }
+
+/* Hover para filas */
+tr:hover {
+  background-color: #28004d;
+  transition: background-color 0.2s ease;
+}
+
 
 
 
