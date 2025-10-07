@@ -26,6 +26,11 @@ export class Preguntados implements OnInit {
   categorias: string[] = [];
   categoriaSeleccionada: string | null = null;
 
+  
+  tiempoInicio!: number;
+  tiempoJugado: number = 0;
+  timerInterval: any;
+
   constructor(
     private preguntasService: PreguntasService,
     private supabase: SupabaseService,
@@ -39,7 +44,8 @@ export class Preguntados implements OnInit {
   cargarCategorias() {
     this.preguntasService.obtenerPreguntas().subscribe({
       next: (data) => {
-        this.categorias = Array.from(new Set(data.map(p => p.category))).filter(cat => cat && cat.trim() !== "");;
+        this.categorias = Array.from(new Set(data.map(p => p.category)))
+          .filter(cat => cat && cat.trim() !== "");
         this.cargando = false;
       },
       error: (err) => {
@@ -52,6 +58,14 @@ export class Preguntados implements OnInit {
   iniciarJuego(categoria: string) {
     this.categoriaSeleccionada = categoria;
     this.cargarPreguntas();
+
+    // Iniciar temporizador
+    this.tiempoInicio = Date.now();
+    this.tiempoJugado = 0;
+    if (this.timerInterval) clearInterval(this.timerInterval);
+    this.timerInterval = setInterval(() => {
+      this.tiempoJugado = Math.floor((Date.now() - this.tiempoInicio) / 1000);
+    }, 1000);
   }
 
   cargarPreguntas() {
@@ -63,8 +77,6 @@ export class Preguntados implements OnInit {
     this.preguntasService.obtenerPreguntas().subscribe({
       next: (data) => {
         let preguntasFiltradas = data;
-
-        // Solo filtramos si no es "todas"
         if (this.categoriaSeleccionada && this.categoriaSeleccionada !== "todas") {
           preguntasFiltradas = data.filter(p => p.category === this.categoriaSeleccionada);
         }
@@ -117,16 +129,24 @@ export class Preguntados implements OnInit {
       this.preguntaActualIndex++;
       this.setPreguntaActual();
     } else {
-      this.juegoTerminado = true;
-      this.guardarPartida();
+      this.terminarJuego();
     }
   }
 
   reiniciarJuego() {
+    clearInterval(this.timerInterval);
     this.puntaje = 0;
     this.preguntaActualIndex = 0;
     this.juegoTerminado = false;
+    this.tiempoJugado = 0;
     this.cargarPreguntas();
+  }
+
+  async terminarJuego() {
+    clearInterval(this.timerInterval);
+    this.tiempoJugado = Math.floor((Date.now() - this.tiempoInicio) / 1000);
+    this.juegoTerminado = true;
+    await this.guardarPartida();
   }
 
   async guardarPartida() {
@@ -138,6 +158,7 @@ export class Preguntados implements OnInit {
       juego: 'preguntados',
       resultado: 'finalizado',
       puntaje: this.puntaje,
+      tiempo_jugado: this.tiempoJugado,
       detalles: {
         preguntas_respondidas: this.preguntaActualIndex + 1,
         total_preguntas: this.limitePreguntas,
@@ -150,6 +171,7 @@ export class Preguntados implements OnInit {
     return this.preguntas[this.preguntaActualIndex] || null;
   }
 }
+
 
 
 

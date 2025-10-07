@@ -7,7 +7,7 @@ import { SalaChat } from '../../components/sala-chat/sala-chat';
 @Component({
   selector: 'app-black-jack',
   standalone: true,
-  imports: [CommonModule,PuntosPipe,SalaChat],
+  imports: [CommonModule, PuntosPipe, SalaChat],
   templateUrl: './black-jack.html',
   styleUrls: ['./black-jack.css']
 })
@@ -18,6 +18,10 @@ export class Blackjack implements OnInit {
   mensaje: string = '';
   juegoTerminado: boolean = false;
   puntaje: number = 0;
+
+  tiempoInicio!: number;
+  tiempoJugado: number = 0;
+  timerInterval: any;
 
   constructor(private supabase: SupabaseService) {}
 
@@ -76,6 +80,14 @@ export class Blackjack implements OnInit {
     this.dealer = [this.tomarCarta(), this.tomarCarta()];
     this.mensaje = '';
     this.juegoTerminado = false;
+
+    // Iniciar contador de tiempo
+    this.tiempoInicio = Date.now();
+    this.tiempoJugado = 0;
+    if (this.timerInterval) clearInterval(this.timerInterval);
+    this.timerInterval = setInterval(() => {
+      this.tiempoJugado = Math.floor((Date.now() - this.tiempoInicio) / 1000);
+    }, 1000);
   }
 
   pedirCarta() {
@@ -92,7 +104,6 @@ export class Blackjack implements OnInit {
   plantarse() {
     if (this.juegoTerminado) return;
 
-    // Dealer juega hasta llegar a 17 o más
     while (this.valorTotal(this.dealer) < 17) {
       this.dealer.push(this.tomarCarta());
     }
@@ -115,28 +126,33 @@ export class Blackjack implements OnInit {
     }
 
     this.juegoTerminado = true;
+    clearInterval(this.timerInterval); // detener timer
   }
 
   async guardarPartida(resultado: string) {
-  const { data: user } = await this.supabase.client.auth.getUser();
+    this.tiempoJugado = Math.floor((Date.now() - this.tiempoInicio) / 1000);
 
-  await this.supabase.client.from('partidas').insert({
-    usuario_id: user?.user?.id,
-    usuario_email: user?.user?.email,
-    juego: 'blackjack',
-    resultado,
-    puntaje: this.puntaje,
-    detalles: {
-      cartas_jugador: this.jugador.map(c => c.nombre),
-      cartas_dealer: this.dealer.map(c => c.nombre)
-    }
-  });
-}
+    const { data: user } = await this.supabase.client.auth.getUser();
 
+    await this.supabase.client.from('partidas').insert({
+      usuario_id: user?.user?.id,
+      usuario_email: user?.user?.email,
+      juego: 'blackjack',
+      resultado,
+      puntaje: this.puntaje,
+      tiempo_jugado: this.tiempoJugado,
+      detalles: {
+        cartas_jugador: this.jugador.map(c => c.nombre),
+        cartas_dealer: this.dealer.map(c => c.nombre)
+      }
+    });
+  }
 
   reiniciarJuego() {
     this.puntaje = 0;
+    clearInterval(this.timerInterval);
     this.iniciarJuego();
   }
 }
+
 

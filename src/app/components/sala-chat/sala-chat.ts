@@ -1,15 +1,14 @@
-import { Component, OnInit,NgZone, OnDestroy  } from '@angular/core';
+import { Component, OnInit, NgZone, OnDestroy, ChangeDetectorRef } from '@angular/core';
 import { SupabaseService } from '../../services/supabase';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms'; 
-import { ChangeDetectorRef } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-sala-chat',
   standalone: true,
   imports: [CommonModule, FormsModule],
   templateUrl: './sala-chat.html',
-  styleUrl: './sala-chat.css',
+  styleUrls: ['./sala-chat.css'],
 })
 export class SalaChat implements OnInit, OnDestroy {
   mensajes: any[] = [];
@@ -17,12 +16,15 @@ export class SalaChat implements OnInit, OnDestroy {
   usuarioId: string | null = null;
   usuarioNombre: string = '';
   cargandoUsuario = true;
-  mostrarChat = false
+  mostrarChat = false;
 
-  private subscription: any;
   private canal: any;
 
-  constructor(private supabaseService: SupabaseService, private ngZone: NgZone,private cd: ChangeDetectorRef) {}
+  constructor(
+    private supabaseService: SupabaseService,
+    private ngZone: NgZone,
+    private cd: ChangeDetectorRef
+  ) {}
 
   async ngOnInit() {
     await this.cargarUsuario();
@@ -34,17 +36,15 @@ export class SalaChat implements OnInit, OnDestroy {
     this.cerrarCanal();
   }
 
- abrirChat() {
+  abrirChat() {
     this.mostrarChat = true;
   }
 
-
-
   private async cargarUsuario() {
-    const userResponse = await this.supabaseService.client.auth.getUser();
-    if (userResponse.data?.user) {
-      this.usuarioId = userResponse.data.user.id;
-      this.usuarioNombre = userResponse.data.user.email || '';
+    const { data } = await this.supabaseService.client.auth.getUser();
+    if (data?.user) {
+      this.usuarioId = data.user.id;
+      this.usuarioNombre = data.user.email || 'Usuario';
     }
     this.cargandoUsuario = false;
   }
@@ -66,34 +66,24 @@ export class SalaChat implements OnInit, OnDestroy {
   private suscribirseAlCanal() {
     this.cerrarCanal();
 
-    this.canal = this.supabaseService.client.channel('chat-channel');
-
-    this.subscription = this.canal
+    this.canal = this.supabaseService.client
+      .channel('chat-channel')
       .on(
         'postgres_changes',
         { event: 'INSERT', schema: 'public', table: 'chat' },
-        (payload:any) => {
-          console.log('Nuevo mensaje recibido:', payload);
+        (payload: any) => {
           this.ngZone.run(() => {
             this.mensajes.push(payload.new);
+            this.cd.detectChanges();
           });
         }
       )
-      .subscribe();
-
-    console.log('Estado inicial de suscripción:', this.subscription.state);
-
-    // Escuchar eventos de conexión
-    this.canal.on('presence', () => {
-      console.log('Canal activo');
-    });
+      .subscribe(status => {
+        console.log('Estado de la suscripción:', status);
+      });
   }
 
   private cerrarCanal() {
-    if (this.subscription) {
-      this.subscription.unsubscribe();
-      this.subscription = null;
-    }
     if (this.canal) {
       this.supabaseService.client.removeChannel(this.canal);
       this.canal = null;
@@ -113,12 +103,11 @@ export class SalaChat implements OnInit, OnDestroy {
         }
       ]);
 
-    this.ngZone.run(() => {
     if (error) {
       console.error('Error al enviar mensaje:', error);
     } else {
       this.nuevoMensaje = '';
-      this.cd.detectChanges(); 
     }
-  });
-}}
+  }
+}
+

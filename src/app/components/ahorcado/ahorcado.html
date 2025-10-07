@@ -1,6 +1,10 @@
 <div class="ahorcado">
   <h2>Juego del Ahorcado</h2>
 
+   <p style="font-size: 1.2rem; color: #00FFFF;">
+    ⏱ Tiempo jugado: {{ tiempoJugado }}s
+  </p>
+
   <p class="progreso">{{ progreso.join(' ') }}</p>  
   <p>Intentos: {{ intentos }} / {{ intentosMax }}</p>  
   <p>Puntaje: {{puntaje | puntos}}</p>    

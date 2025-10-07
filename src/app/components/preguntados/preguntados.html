@@ -11,7 +11,7 @@
   </div>
 </div>
 
-<!-- Juego en progreso -->
+
 <div *ngIf="!cargando && !juegoTerminado && preguntas.length > 0">
   <h2>Pregunta {{ preguntaActualIndex + 1 }} de {{ limitePreguntas }}</h2>
   <p>{{ preguntaActual?.question }}</p>
@@ -23,9 +23,14 @@
   </div>
 
   <p>Puntaje: {{ puntaje | puntos }}</p>
+  
+  
+  <p style="font-size: 1.2rem; color: #00FFFF;">
+    ⏱ Tiempo jugado: {{ tiempoJugado }}s
+  </p>
 </div>
 
-<!-- Juego terminado -->
+
 <div *ngIf="juegoTerminado">
   <h2>🎉 ¡Juego terminado!</h2>
   <p>Tu puntaje final es: {{ puntaje | puntos }}</p>

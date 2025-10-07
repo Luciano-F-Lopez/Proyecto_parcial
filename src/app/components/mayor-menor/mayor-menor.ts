@@ -7,12 +7,11 @@ import { SalaChat } from '../../components/sala-chat/sala-chat';
 @Component({
   selector: 'app-mayor-menor',
   standalone: true,
-  imports: [CommonModule,PuntosPipe,SalaChat],
+  imports: [CommonModule, PuntosPipe, SalaChat],
   templateUrl: './mayor-menor.html',
   styleUrls: ['./mayor-menor.css'],
 })
 export class MayorMenor implements OnInit {
-
   baraja: { valor: number, img: string }[] = [];
   numeroActual!: { valor: number, img: string };
   cartasAcertadas: number = 0;
@@ -20,6 +19,10 @@ export class MayorMenor implements OnInit {
   intentosMax: number = 10;
   puntaje: number = 0;
   mensajeFinal: string = '';
+
+  tiempoInicio!: number;
+  tiempoJugado: number = 0;
+  timerInterval: any;
 
   constructor(private supabase: SupabaseService) {}
 
@@ -29,22 +32,21 @@ export class MayorMenor implements OnInit {
 
   crearBaraja() {
     this.baraja = [];
-
     const palos = ['clubs', 'diamonds', 'hearts', 'spades'];
     const valores = [
-      {nombre: 'A', valor: 1},
-      {nombre: '2', valor: 2},
-      {nombre: '3', valor: 3},
-      {nombre: '4', valor: 4},
-      {nombre: '5', valor: 5},
-      {nombre: '6', valor: 6},
-      {nombre: '7', valor: 7},
-      {nombre: '8', valor: 8},
-      {nombre: '9', valor: 9},
-      {nombre: '10', valor: 10},
-      {nombre: 'J', valor: 11},
-      {nombre: 'Q', valor: 12},
-      {nombre: 'K', valor: 13},
+      { nombre: 'A', valor: 1 },
+      { nombre: '2', valor: 2 },
+      { nombre: '3', valor: 3 },
+      { nombre: '4', valor: 4 },
+      { nombre: '5', valor: 5 },
+      { nombre: '6', valor: 6 },
+      { nombre: '7', valor: 7 },
+      { nombre: '8', valor: 8 },
+      { nombre: '9', valor: 9 },
+      { nombre: '10', valor: 10 },
+      { nombre: 'J', valor: 11 },
+      { nombre: 'Q', valor: 12 },
+      { nombre: 'K', valor: 13 },
     ];
 
     for (let palo of palos) {
@@ -55,8 +57,6 @@ export class MayorMenor implements OnInit {
         });
       }
     }
-
-    
     this.baraja.sort(() => Math.random() - 0.5);
   }
 
@@ -69,48 +69,25 @@ export class MayorMenor implements OnInit {
   adivinar(mayor: boolean) {
     if (this.mensajeFinal) return;
     const proximoCarta = this.baraja[this.baraja.length - 1];
-
     if (!proximoCarta) {
-      this.mensajeFinal = `Juego terminado. Cartas acertadas: ${this.cartasAcertadas}`;
-      this.guardarPartida();
+      this.terminarJuego();
       return;
     }
 
     const acierto = (mayor && proximoCarta.valor > this.numeroActual.valor) ||
                     (!mayor && proximoCarta.valor < this.numeroActual.valor);
 
-      if (acierto) {
-    this.cartasAcertadas++;
-    this.puntaje += 10; 
-  }
+    if (acierto) {
+      this.cartasAcertadas++;
+      this.puntaje += 10; 
+    }
     this.totalIntentos++;
     this.siguienteNumero();
 
     if (this.totalIntentos >= this.intentosMax) {
-      this.mensajeFinal = `Juego terminado. Cartas acertadas: ${this.cartasAcertadas}`;
-      this.guardarPartida();
+      this.terminarJuego();
     }
   }
-
-  async guardarPartida() {
-  const { data: user } = await this.supabase.client.auth.getUser();
-  if (!user?.user?.id) return;
-
-  const resultado = this.cartasAcertadas >= this.intentosMax / 2 ? 'ganado' : 'perdido';
-
-  await this.supabase.client.from('partidas').insert({
-    usuario_id: user.user.id,
-    usuario_email: user?.user?.email,
-    juego: 'mayor_menor',
-    resultado,
-    puntaje: this.puntaje,
-    detalles: {
-      cartas_acertadas: this.cartasAcertadas,
-      total_intentos: this.totalIntentos
-    }
-  });
-}
-
 
   reiniciarJuego() {
     this.cartasAcertadas = 0;
@@ -119,8 +96,44 @@ export class MayorMenor implements OnInit {
     this.mensajeFinal = '';
     this.crearBaraja();
     this.siguienteNumero();
+
+    // Iniciar temporizador
+    this.tiempoInicio = Date.now();
+    this.tiempoJugado = 0;
+    if (this.timerInterval) clearInterval(this.timerInterval);
+    this.timerInterval = setInterval(() => {
+      this.tiempoJugado = Math.floor((Date.now() - this.tiempoInicio) / 1000);
+    }, 1000);
+  }
+
+  async terminarJuego() {
+    clearInterval(this.timerInterval);
+    this.tiempoJugado = Math.floor((Date.now() - this.tiempoInicio) / 1000);
+    this.mensajeFinal = `Juego terminado. Cartas acertadas: ${this.cartasAcertadas}`;
+    await this.guardarPartida();
+  }
+
+  async guardarPartida() {
+    const { data: user } = await this.supabase.client.auth.getUser();
+    if (!user?.user?.id) return;
+
+    const resultado = this.cartasAcertadas >= this.intentosMax / 2 ? 'ganado' : 'perdido';
+
+    await this.supabase.client.from('partidas').insert({
+      usuario_id: user.user.id,
+      usuario_email: user?.user?.email,
+      juego: 'mayor_menor',
+      resultado,
+      puntaje: this.puntaje,
+      tiempo_jugado: this.tiempoJugado,
+      detalles: {
+        cartas_acertadas: this.cartasAcertadas,
+        total_intentos: this.totalIntentos
+      }
+    });
   }
 }
+
 
 
 
