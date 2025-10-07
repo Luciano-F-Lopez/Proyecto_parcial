@@ -10,8 +10,15 @@ export class SupabaseService {
 
   constructor() {
     this.supabase = createClient(
-      environment.supabaseUrl,  
-      environment.supabaseKey                       
+      environment.supabaseUrl,
+      environment.supabaseKey,
+      {
+        realtime: {
+          params: {
+            eventsPerSecond: 10, // Controla la frecuencia de eventos
+          }
+        }
+      }
     );
   }
 
@@ -19,4 +26,5 @@ export class SupabaseService {
     return this.supabase;
   }
 }
+
 

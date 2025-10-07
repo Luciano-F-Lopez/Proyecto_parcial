@@ -64,6 +64,11 @@ export class SalaChat implements OnInit, OnDestroy {
   }
 
   private suscribirseAlCanal() {
+    if (typeof window === 'undefined') {
+      console.warn('SalaChat: no se puede abrir canal Realtime fuera del navegador');
+      return;
+    }
+
     this.cerrarCanal();
 
     this.canal = this.supabaseService.client
@@ -110,4 +115,5 @@ export class SalaChat implements OnInit, OnDestroy {
     }
   }
 }
+
 
