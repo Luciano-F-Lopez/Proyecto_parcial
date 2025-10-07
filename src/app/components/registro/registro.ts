@@ -41,6 +41,7 @@ export class Registro {
         Validators.required,
         Validators.minLength(6),
         Validators.pattern(/^(?=.*[A-Za-z])(?=.*\d).{6,}$/)
+
       ]],
       confirmPassword: ['', Validators.required],
       aceptoTerminos: [false, Validators.requiredTrue]

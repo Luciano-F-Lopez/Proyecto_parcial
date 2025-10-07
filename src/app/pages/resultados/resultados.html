@@ -11,7 +11,7 @@
         <th>Fecha</th>
       </tr>
       <tr *ngFor="let partida of blackjack">
-        <td>{{ partida.usuario_email }}</td>
+        <td>{{ partida.usuario_email.split('@')[0] }}</td>
         <td>{{ partida.puntaje | puntos }}</td>
         <td>{{ partida.resultado }}</td>
         <td>{{ partida.fecha | fechaRelativa }}</td>
@@ -29,7 +29,7 @@
         <th>Fecha</th>
       </tr>
       <tr *ngFor="let partida of mayorMenor">
-        <td>{{ partida.usuario_email }}</td>
+        <td>{{ partida.usuario_email.split('@')[0] }}</td>
         <td>{{ partida.puntaje | puntos  }}</td>
         <td>{{ partida.resultado }}</td>
         <td>{{ partida.fecha | fechaRelativa }}</td>
@@ -47,7 +47,7 @@
         <th>Fecha</th>
       </tr>
       <tr *ngFor="let partida of preguntados">
-        <td>{{ partida.usuario_email }}</td>
+        <td>{{ partida.usuario_email.split('@')[0] }}</td>
         <td>{{ partida.puntaje | puntos  }}</td>
         <td>{{ partida.resultado }}</td>
         <td>{{ partida.fecha | fechaRelativa }}</td>
@@ -65,7 +65,7 @@
         <th>Fecha</th>
       </tr>
       <tr *ngFor="let partida of ahorcado">
-        <td>{{ partida.usuario_email }}</td>
+        <td>{{ partida.usuario_email.split('@')[0] }}</td>
         <td>{{ partida.puntaje | puntos  }}</td>
         <td>{{ partida.resultado }}</td>
         <td>{{ partida.fecha | fechaRelativa }}</td>

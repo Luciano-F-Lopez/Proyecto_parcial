@@ -34,6 +34,12 @@ export class Login {
 
  async login() {
   this.errorMessage = null;
+  if (this.form.invalid) {
+    this.errorMessage = "⚠ Debes completar todos los campos antes de enviar.";
+    this.form.markAllAsTouched();
+    return;
+  }
+
   const { email, password } = this.form.value;
   
 

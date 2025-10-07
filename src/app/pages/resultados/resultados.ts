@@ -28,28 +28,32 @@ export class Resultados implements OnInit {
       .from('partidas')
       .select('*')
       .eq('juego', 'blackjack')
-      .order('puntaje', { ascending: false });
+      .order('puntaje', { ascending: false })
+      .limit(5);
     this.blackjack = blackjackData ?? [];
 
     const { data: mayorMenorData } = await this.supabase.client
       .from('partidas')
       .select('*')
       .eq('juego', 'mayor_menor')
-      .order('puntaje', { ascending: false });
+      .order('puntaje', { ascending: false })
+      .limit(5);
     this.mayorMenor = mayorMenorData ?? [];
 
     const { data: preguntadosData } = await this.supabase.client
       .from('partidas')
       .select('*')
       .eq('juego', 'preguntados')
-      .order('puntaje', { ascending: false });
+      .order('puntaje', { ascending: false })
+      .limit(5);
     this.preguntados = preguntadosData ?? [];
 
     const { data: ahorcadoData } = await this.supabase.client
       .from('partidas')
       .select('*')
       .eq('juego', 'ahorcado')
-      .order('puntaje', { ascending: false });
+      .order('puntaje', { ascending: false })
+      .limit(5);
     this.ahorcado = ahorcadoData ?? [];
 
     
