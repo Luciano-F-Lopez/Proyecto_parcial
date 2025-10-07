@@ -2,11 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SupabaseService } from '../../services/supabase';
 import { PuntosPipe } from '../../pipes/puntos-pipe';
+import { FechaRelativaPipe } from '../../pipes/fecha-relativa.pipe';
 
 @Component({
   selector: 'app-resultados',
   standalone: true,
-  imports: [CommonModule,PuntosPipe],
+  imports: [CommonModule,PuntosPipe,FechaRelativaPipe],
   templateUrl: './resultados.html',
   styleUrls: ['./resultados.css']
 })

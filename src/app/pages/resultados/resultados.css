@@ -1,11 +1,13 @@
-h1, h2 {
-  text-align: center;
-  color: #00FFFF;
-  font-family: 'Orbitron', sans-serif;
+div {
+  padding: 20px;
+  max-width: 1000px; 
+  margin: 0 auto;    
+  box-sizing: border-box;
 }
 
 table {
-  width: 100%;
+  width: 100%;         
+  table-layout: fixed; 
   border-collapse: collapse;
   margin-bottom: 20px;
 }
@@ -14,8 +16,8 @@ th, td {
   border: 1px solid #444;
   padding: 8px;
   text-align: center;
+  word-wrap: break-word; 
 }
-
 
 th {
   background-color: black;
@@ -29,3 +31,6 @@ tr:nth-child(even) {
 tr:nth-child(odd) {
   background-color: #1e1e1e;
 }
+
+
+

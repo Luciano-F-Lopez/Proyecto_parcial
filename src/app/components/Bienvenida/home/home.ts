@@ -1,4 +1,4 @@
-import { Component, OnInit, NgZone } from '@angular/core';
+import { Component, OnInit, NgZone , ChangeDetectorRef  } from '@angular/core';
 import { Router } from '@angular/router';
 import { SupabaseService } from '../../../services/supabase';
 import { CommonModule } from '@angular/common'; 
@@ -20,7 +20,8 @@ export class Home implements OnInit {
   constructor(
     private supabaseService: SupabaseService,
     private router: Router,
-    private ngZone: NgZone
+    private ngZone: NgZone,
+    private cdr: ChangeDetectorRef,// <-- agregado
   ) {}
 
   abrirChat() {
@@ -54,6 +55,16 @@ irASalaChat(){
 irABlackjack(){
   this.router.navigate(['/BlackJack']);
 }
+mostrarRanking = false;
+
+abrirRanking() {
+  this.mostrarRanking = true;
+}
+
+cerrarRanking() {
+  this.mostrarRanking = false;
+}
+
 
   async ngOnInit() {
     
@@ -66,6 +77,7 @@ irABlackjack(){
     this.supabaseService.client.auth.onAuthStateChange((_event, session) => {
      this.ngZone.run(() => {
         this.usuario = session?.user || null;
+        this.cdr.detectChanges();
       });
     });
   }

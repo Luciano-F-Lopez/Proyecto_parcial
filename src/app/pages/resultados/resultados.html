@@ -8,11 +8,13 @@
         <th>Jugador</th>
         <th>Puntaje</th>
         <th>Resultado</th>
+        <th>Fecha</th>
       </tr>
       <tr *ngFor="let partida of blackjack">
         <td>{{ partida.usuario_email }}</td>
         <td>{{ partida.puntaje | puntos }}</td>
         <td>{{ partida.resultado }}</td>
+        <td>{{ partida.fecha | fechaRelativa }}</td>
       </tr>
     </table>
   </section>
@@ -24,11 +26,13 @@
         <th>Jugador</th>
         <th>Puntaje</th>
         <th>Resultado</th>
+        <th>Fecha</th>
       </tr>
       <tr *ngFor="let partida of mayorMenor">
         <td>{{ partida.usuario_email }}</td>
         <td>{{ partida.puntaje | puntos  }}</td>
         <td>{{ partida.resultado }}</td>
+        <td>{{ partida.fecha | fechaRelativa }}</td>
       </tr>
     </table>
   </section>
@@ -40,11 +44,13 @@
         <th>Jugador</th>
         <th>Puntaje</th>
         <th>Resultado</th>
+        <th>Fecha</th>
       </tr>
       <tr *ngFor="let partida of preguntados">
         <td>{{ partida.usuario_email }}</td>
         <td>{{ partida.puntaje | puntos  }}</td>
         <td>{{ partida.resultado }}</td>
+        <td>{{ partida.fecha | fechaRelativa }}</td>
       </tr>
     </table>
   </section>
@@ -56,11 +62,13 @@
         <th>Jugador</th>
         <th>Puntaje</th>
         <th>Resultado</th>
+        <th>Fecha</th>
       </tr>
       <tr *ngFor="let partida of ahorcado">
         <td>{{ partida.usuario_email }}</td>
         <td>{{ partida.puntaje | puntos  }}</td>
         <td>{{ partida.resultado }}</td>
+        <td>{{ partida.fecha | fechaRelativa }}</td>
       </tr>
     </table>
   </section>
