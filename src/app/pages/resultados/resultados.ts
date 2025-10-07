@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SupabaseService } from '../../services/supabase';
 import { PuntosPipe } from '../../pipes/puntos-pipe';
@@ -7,7 +7,7 @@ import { FechaRelativaPipe } from '../../pipes/fecha-relativa.pipe';
 @Component({
   selector: 'app-resultados',
   standalone: true,
-  imports: [CommonModule,PuntosPipe,FechaRelativaPipe],
+  imports: [CommonModule, PuntosPipe, FechaRelativaPipe],
   templateUrl: './resultados.html',
   styleUrls: ['./resultados.css']
 })
@@ -17,7 +17,7 @@ export class Resultados implements OnInit {
   preguntados: any[] = [];
   ahorcado: any[] = [];
 
-  constructor(private supabase: SupabaseService) {}
+  constructor(private supabase: SupabaseService, private cd: ChangeDetectorRef) {}
 
   async ngOnInit() {
     await this.cargarResultados();
@@ -51,7 +51,11 @@ export class Resultados implements OnInit {
       .eq('juego', 'ahorcado')
       .order('puntaje', { ascending: false });
     this.ahorcado = ahorcadoData ?? [];
+
+    
+    this.cd.detectChanges();
   }
 }
+
 
 
