@@ -2,11 +2,12 @@ import { Component, OnInit, NgZone } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SupabaseService } from '../../services/supabase';
 import { PuntosPipe } from '../../pipes/puntos-pipe';
+import { SalaChat } from '../../components/sala-chat/sala-chat';
 
 @Component({
   selector: 'app-preguntados',
   standalone: true,
-  imports: [CommonModule,PuntosPipe],
+  imports: [CommonModule,PuntosPipe,SalaChat],
   templateUrl: './preguntados.html',
   styleUrls: ['./preguntados.css']
 })

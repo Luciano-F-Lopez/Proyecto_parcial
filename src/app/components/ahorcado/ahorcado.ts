@@ -2,11 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { SupabaseService } from '../../services/supabase';
 import { CommonModule } from '@angular/common';
 import { PuntosPipe } from '../../pipes/puntos-pipe';
+import { SalaChat } from '../../components/sala-chat/sala-chat';
 
 @Component({
   selector: 'app-ahorcado',
   standalone: true,
-  imports: [CommonModule,PuntosPipe],
+  imports: [CommonModule,PuntosPipe,SalaChat],
   templateUrl: './ahorcado.html',
   styleUrl: './ahorcado.css', 
 })
