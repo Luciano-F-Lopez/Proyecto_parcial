@@ -4,12 +4,14 @@ import { SupabaseService } from '../../../services/supabase';
 import { CommonModule } from '@angular/common'; 
 import { SalaChat } from '../../sala-chat/sala-chat';
 import { Resultados } from '../../../pages/resultados/resultados';
+import { Highlight } from '../../../directives/highlight';
+import { ThemeService } from '../../../services/theme.service';
 
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule,SalaChat,Resultados],
+  imports: [CommonModule,SalaChat,Resultados,Highlight],
   templateUrl: './home.html',
   styleUrl: './home.css'
 })
@@ -21,7 +23,8 @@ export class Home implements OnInit {
     private supabaseService: SupabaseService,
     private router: Router,
     private ngZone: NgZone,
-    private cdr: ChangeDetectorRef,// <-- agregado
+    private cdr: ChangeDetectorRef,
+    private themeService: ThemeService
   ) {}
 
   abrirChat() {
@@ -60,6 +63,13 @@ mostrarRanking = false;
 abrirRanking() {
   this.mostrarRanking = true;
 }
+toggleTheme() {
+    this.themeService.toggleTheme();
+  }
+
+  get esModoOscuro(): boolean {
+    return this.themeService.isDarkMode();
+  }
 
 cerrarRanking() {
   this.mostrarRanking = false;

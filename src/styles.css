@@ -3,30 +3,120 @@
     color: white;
 }
 
-a {
-    color: #00FFFF;
-    font-size: 25px;
-    margin: 0 20px;
-    text-decoration: none;
-}
-
-#nav_global{
-    margin-top: 30px;
+/* NAV BAR GAMER */
+nav {
     display: flex;
     justify-content: center;
-    letter-spacing: 10px;
+    align-items: center;
+    padding: 15px 30px;
+    border: 2px solid #00FFFF;
+    border-radius: 25px;
+    background: rgba(17, 17, 17, 0.8); /* translúcido */
+    backdrop-filter: blur(10px); /* efecto cristal */
+    box-shadow: 0 0 15px #00FFFF, 0 0 30px rgba(0, 255, 255, 0.2);
+    transition: all 0.3s ease;
+}
+
+nav:hover {
+    box-shadow: 0 0 25px #00FFFF, 0 0 40px rgba(0, 255, 255, 0.4);
+}
+
+#nav_global {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    letter-spacing: 8px;
+}
+
+#nav_global a {
+    color: #00FFFF;
+    font-size: 20px;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 10px 15px;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    font-family: 'Orbitron', sans-serif;
 }
 
 #nav_global a:hover {
     color: black;
-    background:  #00FFFF;
+    background: #00FFFF;
+    box-shadow: 0 0 10px #00FFFF, 0 0 20px rgba(0, 255, 255, 0.3);
+    transform: translateY(-2px);
+}
+
+#nav_global a:active {
+    transform: scale(0.97);
+}
+
+#nav_global a.active {
+    background: #00FFFF;
+    color: black;
+    box-shadow: 0 0 15px #00FFFF;
+}
+
+
+/* 🌟 MODO CLARO GAMER */
+body.light-mode {
+    background-color: #e3f2fd; /* Azul claro suave */
+    color: #0a0a0a; /* Texto oscuro */
+    transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+body.light-mode * {
+    background-color: transparent !important;
+    color: #0a0a0a !important;
+    transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+body.light-mode a {
+    color: #007acc !important;
+}
+
+body.light-mode a:hover {
+    color: #ffffff !important;
+    background: #007acc !important;
     border-radius: 8px;
 }
 
-nav{
+body.light-mode #nav_global {
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 12px;
     padding: 10px;
-    border: 2px solid #00FFFF;
-    border-radius: 20px;
 }
+
+body.light-mode #nav_global a {
+    color: #007acc;
+}
+
+body.light-mode nav {
+    padding: 10px;
+    border: 2px solid #007acc;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.9);
+}
+
+body.light-mode nav a {
+    color: #007acc;
+}
+
+body.light-mode nav a:hover {
+    color: white;
+    background: #007acc;
+}
+
+body.light-mode .juego-img {
+    box-shadow: 0 0 15px rgba(0, 122, 204, 0.4);
+    border-radius: 12px;
+}
+
+body.light-mode div {
+    background: rgba(255, 255, 255, 0.9);
+    color: #0a0a0a;
+    border-radius: 12px;
+    box-shadow: 0 0 12px rgba(0, 122, 204, 0.2);
+}
+
 
 

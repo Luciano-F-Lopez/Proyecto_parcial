@@ -9,7 +9,7 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [ReactiveFormsModule, CommonModule],
   templateUrl: './registro.html',
-  styleUrl: './registro.css'
+  styleUrls: ['./registro.css']
 })
 export class Registro {
   form: FormGroup;
@@ -21,12 +21,42 @@ export class Registro {
     private router: Router
   ) {
     this.form = this.fb.group({
-      email: ['', [Validators.required, Validators.email]],
-      nombre: ['', Validators.required],
-      apellido: ['', Validators.required],
-      edad: ['', [Validators.required, Validators.min(1)]],
-      password: ['', [Validators.required, Validators.minLength(6)]],
+      email: ['', [Validators.required, Validators.email, Validators.maxLength(100)]],
+      nombre: ['', [
+        Validators.required,
+        Validators.pattern(/^[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+$/),
+        Validators.maxLength(50)
+      ]],
+      apellido: ['', [
+        Validators.required,
+        Validators.pattern(/^[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+$/),
+        Validators.maxLength(50)
+      ]],
+      edad: ['', [
+        Validators.required,
+        Validators.min(12),
+        Validators.max(120)
+      ]],
+      password: ['', [
+        Validators.required,
+        Validators.minLength(6),
+        Validators.pattern(/^(?=.*[A-Za-z])(?=.*\d).{6,}$/)
+      ]],
+      confirmPassword: ['', Validators.required],
+      aceptoTerminos: [false, Validators.requiredTrue]
+    }, {
+      validator: this.passwordMatchValidator
     });
+  }
+
+  passwordMatchValidator(form: FormGroup) {
+    const password = form.get('password')?.value;
+    const confirmPassword = form.get('confirmPassword')?.value;
+    if (password !== confirmPassword) {
+      form.get('confirmPassword')?.setErrors({ mismatch: true });
+    } else {
+      form.get('confirmPassword')?.setErrors(null);
+    }
   }
 
   async onSubmit() {
@@ -34,7 +64,6 @@ export class Registro {
 
     const { email, password, nombre, apellido, edad } = this.form.value;
 
-   
     const { data, error } = await this.supabase.client.auth.signUp({
       email,
       password,
@@ -46,12 +75,11 @@ export class Registro {
     }
 
     if (data.user) {
-      
       const { error: dbError } = await this.supabase.client
         .from('usuarios')
         .insert([
           {
-            id: data.user.id, 
+            id: data.user.id,
             nombre,
             apellido,
             edad,
@@ -64,8 +92,8 @@ export class Registro {
         return;
       }
 
-      
       this.router.navigate(['/home']);
     }
   }
 }
+

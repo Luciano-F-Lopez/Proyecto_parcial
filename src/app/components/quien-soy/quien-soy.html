@@ -1,10 +1,10 @@
-
 <div *ngIf="loading">
-  <p>Cargando datos del usuario...</p>
+  <p class="cargando">Cargando datos del usuario...</p>
 </div>
 
-<div id="contenedor_git">
-  <div id="datos_user"  *ngIf="!loading && userData">
+<div id="contenedor_git" *ngIf="!loading && userData">
+  
+  <div id="datos_user">
     <h2>{{ userData.name }} ({{ userData.login }})</h2>
     <img [src]="userData.avatar_url" [alt]="userData.login" width="150">
     <p><strong>Bio:</strong> {{ userData.bio || 'Sin bio disponible' }}</p>
@@ -13,16 +13,22 @@
     <p><strong>Seguidores:</strong> {{ userData.followers }}</p>
     <p><strong>Siguiendo:</strong> {{ userData.following }}</p>
   </div>
+
+  <div id="explicacion_juego">
+    <h2>Juego A Elección</h2>
+    <p>
+  El juego elegido por mí es el <strong>Blackjack</strong>, un clásico juego de cartas muy popular por su dinamismo y estrategia.
+  El objetivo es conseguir una mano cuya suma de valores sea lo más cercana posible a <strong>21</strong>, sin pasarse.
+  Cada jugador recibe dos cartas inicialmente y puede pedir más ("hit") o plantarse ("stand") según su estrategia.
+  El crupier también juega siguiendo reglas fijas. Si el jugador supera los 21 puntos, pierde automáticamente.
+  El jugador gana si tiene una mano más cercana a 21 que el crupier, o si el crupier se pasa.
+</p>
+
+  </div>
+
 </div>
-
-<div id="explicacion_juego">
-  <h2>Juego A Eleccion</h2>
-  <p>El juego elegido por mi es el Mayor o menor el cual elegi por que es facil ya sea de entender para nuestro usuario como divertido y facil para nosotros el lograr implementarlo sin tener que complicarnos tanto en el desarrollo del mismo, en este juego el usuario debe adivinar un numero que se pondra random y va a estar escondido, el usuario pondra un numero y el juego le dira si el numero es mayor o menor al que puso y asi sucesivamente hasta que el jugador de con el numero</p>
-</div>
-
-
-
 
 <div *ngIf="!loading && !userData">
   <p>No se pudieron cargar los datos del usuario.</p>
 </div>
+

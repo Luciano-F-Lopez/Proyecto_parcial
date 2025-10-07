@@ -3,49 +3,71 @@
 <div id="div_formulario">
   <form [formGroup]="form" (ngSubmit)="onSubmit()">
 
+    
     <label>Email:</label>
     <input type="email" formControlName="email" />
     <div *ngIf="form.get('email')?.invalid && form.get('email')?.touched" style="color:red">
-      <small *ngIf="form.get('email')?.errors?.['required']"  style="color:red">El email es obligatorio</small>
-      <small *ngIf="form.get('email')?.errors?.['email']" style="color:red">Debe ser un email válido</small>
+      <small *ngIf="form.get('email')?.errors?.['required']">El email es obligatorio</small>
+      <small *ngIf="form.get('email')?.errors?.['email']">Debe ser un email válido</small>
+      <small *ngIf="form.get('email')?.errors?.['maxlength']">El email no puede superar 100 caracteres</small>
     </div>
 
-    
     <label>Nombre:</label>
     <input type="text" formControlName="nombre" />
-    <div *ngIf="form.get('nombre')?.invalid && form.get('nombre')?.touched" style="color:red ">
-      <small style="color:red">El nombre es obligatorio</small>
+    <div *ngIf="form.get('nombre')?.invalid && form.get('nombre')?.touched" style="color:red">
+      <small *ngIf="form.get('nombre')?.errors?.['required']">El nombre es obligatorio</small>
+      <small *ngIf="form.get('nombre')?.errors?.['pattern']">Solo se permiten letras y espacios</small>
+      <small *ngIf="form.get('nombre')?.errors?.['maxlength']">Máximo 50 caracteres</small>
     </div>
 
     
     <label>Apellido:</label>
     <input type="text" formControlName="apellido" />
     <div *ngIf="form.get('apellido')?.invalid && form.get('apellido')?.touched" style="color:red">
-      <small style="color:red">El apellido es obligatorio</small>
+      <small *ngIf="form.get('apellido')?.errors?.['required']">El apellido es obligatorio</small>
+      <small *ngIf="form.get('apellido')?.errors?.['pattern']">Solo se permiten letras y espacios</small>
+      <small *ngIf="form.get('apellido')?.errors?.['maxlength']">Máximo 50 caracteres</small>
     </div>
 
-    
+
     <label>Edad:</label>
     <input type="number" formControlName="edad" />
     <div *ngIf="form.get('edad')?.invalid && form.get('edad')?.touched" style="color:red">
-      <small *ngIf="form.get('edad')?.errors?.['required']" style="color:red">La edad es obligatoria</small>
-      <small *ngIf="form.get('edad')?.errors?.['min']" style="color:red">Debes tener al menos 2 años</small>
+      <small *ngIf="form.get('edad')?.errors?.['required']">La edad es obligatoria</small>
+      <small *ngIf="form.get('edad')?.errors?.['min']">Debes tener al menos 12 años</small>
+      <small *ngIf="form.get('edad')?.errors?.['max']">Edad no válida</small>
     </div>
 
-   
     <label>Contraseña:</label>
     <input type="password" formControlName="password" />
     <div *ngIf="form.get('password')?.invalid && form.get('password')?.touched" style="color:red">
-      <small *ngIf="form.get('password')?.errors?.['required']"style="color:red">La contraseña es obligatoria</small>
-      <small *ngIf="form.get('password')?.errors?.['minlength']" style="color:red">Debe tener al menos 6 caracteres</small>
+      <small *ngIf="form.get('password')?.errors?.['required']">La contraseña es obligatoria</small>
+      <small *ngIf="form.get('password')?.errors?.['minlength']">Debe tener al menos 6 caracteres</small>
+      <small *ngIf="form.get('password')?.errors?.['pattern']">Debe incluir mayúsculas, minúsculas, números y símbolos</small>
     </div>
 
    
+    <label>Confirmar contraseña:</label>
+    <input type="password" formControlName="confirmPassword" />
+    <div *ngIf="form.get('confirmPassword')?.invalid && form.get('confirmPassword')?.touched" style="color:red">
+      <small *ngIf="form.get('confirmPassword')?.errors?.['required']">Debes confirmar tu contraseña</small>
+      <small *ngIf="form.get('confirmPassword')?.errors?.['mismatch']">Las contraseñas no coinciden</small>
+    </div>
+
+    
+    <label>
+      <input type="checkbox" formControlName="aceptoTerminos" /> Acepto términos y condiciones
+    </label>
+    <div *ngIf="form.get('aceptoTerminos')?.invalid && form.get('aceptoTerminos')?.touched" style="color:red">
+      <small>Debes aceptar los términos y condiciones</small>
+    </div>
+
+    
     <button id="boton_registro" type="submit" [disabled]="form.invalid">Registrarse</button>
   </form>
 </div>
 
-
 <p *ngIf="errorMessage" style="color:red">{{ errorMessage }}</p>
+
 
 

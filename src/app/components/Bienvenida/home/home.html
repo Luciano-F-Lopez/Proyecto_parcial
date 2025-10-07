@@ -1,4 +1,9 @@
 <div class="bienvenida">
+   <button class="theme-toggle" (click)="toggleTheme()">
+    {{ esModoOscuro ? '☀️ Modo Claro' : '🌙 Modo Oscuro' }}
+  </button> 
+
+  
   <h1>Bienvenido a Sala de Juegos 🎮</h1>
 
   <div *ngIf="!usuario" class="botones-container">
@@ -21,22 +26,26 @@
       <img src="ahorcado.jpg" 
        alt="Ahorcado" 
        (click)="irAAhorcado()" 
-       class="juego-img">
+       class="juego-img"
+       appHighlight="gold">
 
       <img src="higher-lower-card-game.jpg" 
        alt="Mayor o Menor" 
        (click)="irAMayorMenor()" 
-       class="juego-img">
+       class="juego-img"
+       appHighlight="lightgreen">
 
        <img src="trivia.jpg" 
        alt="Preguntados" 
        (click)="irAPreguntados()" 
-       class="juego-img">
+       class="juego-img"
+       appHighlight="lightblue">
 
        <img src="blackjack.webp" 
        alt="Preguntados" 
        (click)="irABlackjack()" 
-       class="juego-img">
+       class="juego-img"
+        appHighlight="gold">
   </div>
 
   <div style="text-align:center; margin-top: 2rem;">
