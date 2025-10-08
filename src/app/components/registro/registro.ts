@@ -61,40 +61,52 @@ export class Registro {
   }
 
   async onSubmit() {
-    if (this.form.invalid) return;
+  this.errorMessage = null;
 
-    const { email, password, nombre, apellido, edad } = this.form.value;
+  if (this.form.invalid) {
+    this.errorMessage = "⚠ Debes completar todos los campos antes de enviar.";
 
-    const { data, error } = await this.supabase.client.auth.signUp({
-      email,
-      password,
+    // Marca todos los campos como tocados para mostrar mensajes
+    Object.keys(this.form.controls).forEach(field => {
+      const control = this.form.get(field);
+      control?.markAsTouched({ onlySelf: true });
     });
 
-    if (error) {
-      this.errorMessage = error.message;
+    return;
+  }
+
+  const { email, password, nombre, apellido, edad } = this.form.value;
+
+  const { data, error } = await this.supabase.client.auth.signUp({
+    email,
+    password,
+  });
+
+  if (error) {
+    this.errorMessage = error.message;
+    return;
+  }
+
+  if (data.user) {
+    const { error: dbError } = await this.supabase.client
+      .from('usuarios')
+      .insert([
+        {
+          id: data.user.id,
+          nombre,
+          apellido,
+          edad,
+          email,
+        },
+      ]);
+
+    if (dbError) {
+      this.errorMessage = dbError.message;
       return;
     }
 
-    if (data.user) {
-      const { error: dbError } = await this.supabase.client
-        .from('usuarios')
-        .insert([
-          {
-            id: data.user.id,
-            nombre,
-            apellido,
-            edad,
-            email,
-          },
-        ]);
-
-      if (dbError) {
-        this.errorMessage = dbError.message;
-        return;
-      }
-
-      this.router.navigate(['/home']);
-    }
+    this.router.navigate(['/home']);
   }
+}
 }
 

@@ -3,7 +3,6 @@
 <div id="div_formulario">
   <form [formGroup]="form" (ngSubmit)="onSubmit()">
 
-    
     <label>Email:</label>
     <input type="email" formControlName="email" />
     <div *ngIf="form.get('email')?.invalid && form.get('email')?.touched" style="color:red">
@@ -20,7 +19,6 @@
       <small *ngIf="form.get('nombre')?.errors?.['maxlength']">Máximo 50 caracteres</small>
     </div>
 
-    
     <label>Apellido:</label>
     <input type="text" formControlName="apellido" />
     <div *ngIf="form.get('apellido')?.invalid && form.get('apellido')?.touched" style="color:red">
@@ -28,7 +26,6 @@
       <small *ngIf="form.get('apellido')?.errors?.['pattern']">Solo se permiten letras y espacios</small>
       <small *ngIf="form.get('apellido')?.errors?.['maxlength']">Máximo 50 caracteres</small>
     </div>
-
 
     <label>Edad:</label>
     <input type="number" formControlName="edad" />
@@ -46,7 +43,6 @@
       <small *ngIf="form.get('password')?.errors?.['pattern']">Debe incluir mayúsculas, minúsculas, números y símbolos</small>
     </div>
 
-   
     <label>Confirmar contraseña:</label>
     <input type="password" formControlName="confirmPassword" />
     <div *ngIf="form.get('confirmPassword')?.invalid && form.get('confirmPassword')?.touched" style="color:red">
@@ -54,7 +50,6 @@
       <small *ngIf="form.get('confirmPassword')?.errors?.['mismatch']">Las contraseñas no coinciden</small>
     </div>
 
-    
     <label>
       <input type="checkbox" formControlName="aceptoTerminos" /> Acepto términos y condiciones
     </label>
@@ -62,12 +57,15 @@
       <small>Debes aceptar los términos y condiciones</small>
     </div>
 
-    
-    <button id="boton_registro" type="submit" [disabled]="form.invalid">Registrarse</button>
+    <button id="boton_registro" type="submit">Registrarse</button>
+
+    <!-- MENSAJE GENERAL DE ERROR -->
+    <p *ngIf="errorMessage && form.invalid" style="color:red; font-weight:bold; margin-top:10px;">
+      {{ errorMessage }}
+    </p>
   </form>
 </div>
 
-<p *ngIf="errorMessage" style="color:red">{{ errorMessage }}</p>
 
 
 
