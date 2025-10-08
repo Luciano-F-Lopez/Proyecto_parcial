@@ -4,7 +4,7 @@
 <div *ngIf="!cargando && preguntas.length === 0 && !juegoTerminado">
   <h2>Selecciona la categoría</h2>
   <div class="categoria-buttons">
-    <button (click)="iniciarJuego('todas')">Todas</button>
+    <button (click)="iniciarJuego('todas')"><img [src]="'assets/categorias/Todas.png'" alt="Todas">Todas</button>
     <button *ngFor="let cat of categorias" (click)="iniciarJuego(cat)">
       <img [src]="'assets/categorias/' + cat + '.png'" [alt]="cat">
       {{cat}}
