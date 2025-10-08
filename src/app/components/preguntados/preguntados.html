@@ -1,11 +1,12 @@
 <div *ngIf="cargando">Cargando preguntas...</div>
 
-<!-- Selección de categoría con botones -->
+
 <div *ngIf="!cargando && preguntas.length === 0 && !juegoTerminado">
   <h2>Selecciona la categoría</h2>
   <div class="categoria-buttons">
     <button (click)="iniciarJuego('todas')">Todas</button>
     <button *ngFor="let cat of categorias" (click)="iniciarJuego(cat)">
+      <img [src]="'assets/categorias/' + cat + '.png'" [alt]="cat">
       {{cat}}
     </button>
   </div>

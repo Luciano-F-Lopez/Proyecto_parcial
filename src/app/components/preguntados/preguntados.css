@@ -84,4 +84,45 @@ p{
   background-color: #111;
 }
 
+.categoria-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+}
+
+.categoria-buttons button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 120px;
+  height: 120px;
+  padding: 10px;
+  border: 2px solid #00FFFF;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.2s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.categoria-buttons button:hover {
+  background-color: #00e5e5;
+  transform: translateY(-3px);
+  box-shadow: 0 0 15px #00FFFF, 0 0 30px #00FFFF;
+}
+
+.categoria-buttons button img {
+  width: 60px; /* antes 60px */
+  height: 60px; /* antes 60px */
+  object-fit: contain;
+  margin-bottom: 8px;
+}
+
+
+.categoria-buttons button span {
+  font-size: 0.9rem;
+  color: white;
+  text-align: center;
+}
+
 
