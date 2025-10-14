@@ -1,0 +1,159 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  padding-top: 60px;
+  font-family: 'Orbitron', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #e0f7ff;
+
+}
+
+/* --- Título --- */
+h1 {
+  font-size: 2.2rem;
+  color: #00e6e6;
+  margin-bottom: 25px;
+  text-shadow: 0 0 15px rgba(0, 255, 255, 0.6);
+  letter-spacing: 1px;
+}
+
+/* --- Contenedor principal --- */
+form {
+  background: linear-gradient(145deg, #0a2b36, #113b47);
+  padding: 35px 45px;
+  border-radius: 15px;
+  box-shadow: 0 0 25px rgba(0, 255, 255, 0.2), inset 0 0 10px rgba(0, 255, 255, 0.1);
+  backdrop-filter: blur(6px);
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  width: 400px;
+  gap: 15px;
+}
+
+/* --- Etiquetas --- */
+label {
+  color: #00ffff;
+  font-weight: bold;
+  margin-bottom: 5px;
+  font-size: 1rem;
+  text-align: left;
+  backdrop-filter: blur(6px);
+  background: linear-gradient(145deg, #0a2b36, #113b47);
+  
+}
+
+/* --- Campos de entrada y select --- */
+input[type="text"],
+input[type="number"],
+select {
+  width: 100%;
+  padding: 10px 15px;
+  border-radius: 12px;
+  border: 1px solid #00e6e6;
+  background: linear-gradient(145deg, #0a2b36, #113b47); /* mismo fondo del form */
+  color: #e0f7ff;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+input:focus,
+select:focus {
+  outline: none;
+  background: linear-gradient(145deg, #0c3643, #144956); /* un poco más brillante al enfocar */
+  border-color: #00ffff;
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.6);
+}
+
+/* --- Etiquetas --- */
+label {
+  color: #00ffff;
+  font-weight: bold;
+  margin-bottom: 5px;
+  font-size: 1rem;
+  text-align: left;
+  background: transparent; /* quita el fondo que oscurecía las etiquetas */
+}
+
+/* --- Select --- */
+select {
+  appearance: none;
+  cursor: pointer;
+}
+
+/* --- Separador --- */
+hr {
+  width: 100%;
+  border: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #00ffff, transparent);
+  margin: 20px 0;
+}
+
+/* --- Checkbox y Radio --- */
+input[type="checkbox"],
+input[type="radio"] {
+  accent-color: #00e6e6;
+  transform: scale(1.2);
+  margin-right: 8px;
+  cursor: pointer;
+}
+
+div label + br {
+  margin-bottom: 8px;
+}
+
+/* --- Botón --- */
+button {
+  margin-top: 15px;
+  align-self: center;
+  width: 160px;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 10px;
+  background-color: #00b3b3;
+  color: white;
+  font-weight: bold;
+  font-size: 1rem;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background: #00ffff;
+  color: #000;
+  transform: scale(1.08);
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.6);
+}
+
+button:active {
+  transform: scale(0.96);
+}
+
+/* --- Mensaje de error --- */
+p[style*="color: red"] {
+  font-size: 0.9rem;
+  font-weight: bold;
+  border-left: 3px solid #ff4d4d;
+  background: rgba(255, 77, 77, 0.1);
+  padding: 6px 10px;
+  border-radius: 5px;
+}
+
+div{
+    background: linear-gradient(145deg, #0a2b36, #113b47);
+}
+
+/* --- Responsividad --- */
+@media (max-width: 480px) {
+  form {
+    width: 90%;
+    padding: 25px;
+  }
+
+  h1 {
+    font-size: 1.8rem;
+  }
+}

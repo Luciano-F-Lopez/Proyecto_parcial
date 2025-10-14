@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
 import { AuthGuard } from './guards/auth-guard';
 import { LoginGuard } from './guards/login-guard';
+import { AdminGuard } from './guards/admin-guard';
 
 export const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -47,10 +48,18 @@ export const routes: Routes = [
     path: 'SalaChat', 
     loadComponent: () => import('./components/sala-chat/sala-chat').then(m => m.SalaChat), 
     canActivate: [AuthGuard] 
+  },{ 
+    path: 'Encuesta', 
+    loadComponent: () => import('./components/encuesta/encuesta').then(m => m.Encuesta) 
+  },
+  { 
+    path: 'EncuestaResultado', 
+    loadComponent: () => import('./components/encuesta-resultado/encuesta-resultado').then(m => m.EncuestaResultado),
+    canActivate: [AdminGuard]  
   },
   { 
     path: '**', 
     loadComponent: () => import('./pages/not-found/not-found').then(m => m.NotFound) 
-  }
+  }, 
 ];
 

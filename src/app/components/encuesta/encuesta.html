@@ -1,0 +1,49 @@
+<h1>📋 Encuesta de satisfacción</h1>
+
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div>
+    <label>Nombre y apellido:</label>
+    <input type="text" formControlName="nombre" />
+  </div>
+
+  <div>
+    <label>Edad:</label>
+    <input type="number" formControlName="edad" />
+  </div>
+
+  <div>
+    <label>Teléfono:</label>
+    <input type="text" formControlName="telefono" maxlength="10" />
+  </div>
+
+  <hr />
+
+  <div>
+    <label>¿Qué te pareció la aplicación?</label>
+    <select formControlName="pregunta1">
+      <option value="">Seleccionar...</option>
+      <option value="Excelente">Excelente</option>
+      <option value="Buena">Buena</option>
+      <option value="Regular">Regular</option>
+      <option value="Mala">Mala</option>
+    </select>
+  </div>
+
+  <div>
+    <label>¿Qué funcionalidades te gustaron más?</label><br>
+    <input type="checkbox" (change)="form.get('pregunta2')?.setValue('Chat')" /> Chat
+    <input type="checkbox" (change)="form.get('pregunta2')?.setValue('Juegos')" /> Juegos
+    <input type="checkbox" (change)="form.get('pregunta2')?.setValue('Ranking')" /> Ranking
+  </div>
+
+  <div>
+    <label>¿Recomendarías la app?</label><br>
+    <input type="radio" formControlName="pregunta3" value="Sí" /> Sí
+    <input type="radio" formControlName="pregunta3" value="No" /> No
+  </div>
+
+  <p *ngIf="errorMessage" style="color: red">{{ errorMessage }}</p>
+
+  <button type="submit">Enviar</button>
+</form>
+

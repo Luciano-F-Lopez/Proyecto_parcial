@@ -1,0 +1,78 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  padding-top: 60px;
+  font-family: 'Orbitron', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #e0f7ff;
+}
+
+/* --- Título --- */
+h2 {
+  font-size: 2rem;
+  color: #00e6e6;
+  margin-bottom: 25px;
+  text-shadow: 0 0 15px rgba(0, 255, 255, 0.6);
+  letter-spacing: 1px;
+}
+
+/* --- Tabla de encuestas --- */
+table {
+  border-collapse: collapse;
+  width: 90%;
+  max-width: 900px;
+  background: linear-gradient(145deg, #0c3643, #144956);
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 0 25px rgba(0, 255, 255, 0.2), inset 0 0 10px rgba(0, 255, 255, 0.1);
+    background: #00e6e6;
+}
+
+thead {
+  background: linear-gradient(90deg, #00b3b3, #00ffff);
+}
+
+th, td {
+  padding: 12px 15px;
+  text-align: center;
+  color: #e0f7ff;
+  font-size: 1rem;
+  border-bottom: 1px solid rgba(0, 255, 255, 0.2);
+}
+
+tr:hover {
+  background: rgba(0, 255, 255, 0.1);
+}
+
+tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* --- Mensaje de error o “No hay encuestas” --- */
+.error, div[ng-reflect-ng-if="encuestas.length === 0"] {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #ff4d4d;
+  border-left: 3px solid #ff4d4d;
+  background: rgba(255, 77, 77, 0.1);
+  padding: 10px 15px;
+  border-radius: 8px;
+  margin-top: 15px;
+}
+
+/* --- Responsividad --- */
+@media (max-width: 768px) {
+  table {
+    width: 95%;
+  }
+
+  th, td {
+    font-size: 0.9rem;
+    padding: 10px;
+  }
+
+  h2 {
+    font-size: 1.8rem;
+  }
+}

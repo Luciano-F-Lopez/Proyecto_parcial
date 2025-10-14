@@ -15,6 +15,8 @@
   <div *ngIf="usuario" class="usuario-bloque">
     <p>Hola, <strong>{{ usuario.email }}</strong></p>
     <button  (click)="logout()">Cerrar sesión</button>
+    <button  (click)="irAEncuesta()">Encuesta</button>
+    <button  *ngIf="usuario.user_metadata?.role === 'admin'" (click)="irAEncuestaResultado()">Encuesta Resultados</button>
   </div>
 
   <hr>

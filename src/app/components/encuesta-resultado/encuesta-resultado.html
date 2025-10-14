@@ -1,0 +1,31 @@
+<h2>Resultados de Encuestas</h2>
+
+<div *ngIf="error" class="error">{{ error }}</div>
+
+<table *ngIf="encuestas.length > 0">
+  <thead>
+    <tr>
+      <th>Usuario</th>
+      <th>Nombre</th>
+      <th>Edad</th>
+      <th>Teléfono</th>
+      <th>Pregunta 1</th>
+      <th>Pregunta 2</th>
+      <th>Pregunta 3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let e of encuestas">
+      <td>{{ e.usuario_id }}</td>
+      <td>{{ e.nombre }}</td>
+      <td>{{ e.edad }}</td>
+      <td>{{ e.telefono }}</td>
+      <td>{{ e.pregunta1 }}</td>
+      <td>{{ e.pregunta2 }}</td>
+      <td>{{ e.pregunta3 }}</td>
+    </tr>
+  </tbody>
+</table>
+
+<div *ngIf="encuestas.length === 0">No hay encuestas aún.</div>
+

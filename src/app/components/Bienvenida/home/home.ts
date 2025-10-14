@@ -43,6 +43,14 @@ irAAhorcado() {
   this.router.navigate(['/Ahorcado']);
 }
 
+irAEncuesta() {
+  this.router.navigate(['/Encuesta']);
+}
+
+irAEncuestaResultado() {
+  this.router.navigate(['/EncuestaResultado']);
+}
+
 irAMayorMenor() {
   this.router.navigate(['/MayorMenor']);
 }
