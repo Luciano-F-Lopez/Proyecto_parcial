@@ -125,4 +125,19 @@ p{
   text-align: center;
 }
 
+.mensaje-respuesta {
+  margin-top: 10px;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.correcta {
+  color: green;
+}
+
+.incorrecta {
+  color: red;
+}
+
+
 

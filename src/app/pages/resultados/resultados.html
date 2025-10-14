@@ -1,7 +1,17 @@
 <div style="padding: 20px; font-family: Arial, sans-serif;">
   <h1>📊 Resultados Generales</h1>
 
-  <section *ngIf="blackjack.length">
+  <!-- Botones de filtro -->
+  <div style="margin-bottom: 20px;">
+    <button (click)="setFiltro('todos')">Todos</button>
+    <button (click)="setFiltro('blackjack')">Blackjack</button>
+    <button (click)="setFiltro('mayor_menor')">Mayor o Menor</button>
+    <button (click)="setFiltro('preguntados')">Preguntados</button>
+    <button (click)="setFiltro('ahorcado')">Ahorcado</button>
+  </div>
+
+  <!-- Tablas filtradas -->
+  <section *ngIf="blackjack.length && mostrarTabla('blackjack')">
     <h2>Blackjack</h2>
     <table>
       <tr>
@@ -19,7 +29,7 @@
     </table>
   </section>
 
-  <section *ngIf="mayorMenor.length">
+  <section *ngIf="mayorMenor.length && mostrarTabla('mayor_menor')">
     <h2>Mayor o Menor</h2>
     <table>
       <tr>
@@ -37,7 +47,7 @@
     </table>
   </section>
 
-  <section *ngIf="preguntados.length">
+  <section *ngIf="preguntados.length && mostrarTabla('preguntados')">
     <h2>Preguntados</h2>
     <table>
       <tr>
@@ -55,7 +65,7 @@
     </table>
   </section>
 
-  <section *ngIf="ahorcado.length">
+  <section *ngIf="ahorcado.length && mostrarTabla('ahorcado')">
     <h2>Ahorcado</h2>
     <table>
       <tr>
@@ -73,4 +83,5 @@
     </table>
   </section>
 </div>
+
 

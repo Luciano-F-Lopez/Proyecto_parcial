@@ -17,6 +17,8 @@ export class Resultados implements OnInit {
   preguntados: any[] = [];
   ahorcado: any[] = [];
 
+  filtroJuego: string = 'todos'; // <-- filtro seleccionado
+
   constructor(private supabase: SupabaseService, private cd: ChangeDetectorRef) {}
 
   async ngOnInit() {
@@ -24,42 +26,31 @@ export class Resultados implements OnInit {
   }
 
   async cargarResultados() {
-    const { data: blackjackData } = await this.supabase.client
-      .from('partidas')
-      .select('*')
-      .eq('juego', 'blackjack')
-      .order('puntaje', { ascending: false })
-      .limit(5);
-    this.blackjack = blackjackData ?? [];
+    const juegos = ['blackjack', 'mayor_menor', 'preguntados', 'ahorcado'];
 
-    const { data: mayorMenorData } = await this.supabase.client
-      .from('partidas')
-      .select('*')
-      .eq('juego', 'mayor_menor')
-      .order('puntaje', { ascending: false })
-      .limit(5);
-    this.mayorMenor = mayorMenorData ?? [];
+    for (const juego of juegos) {
+      const { data } = await this.supabase.client
+        .from('partidas')
+        .select('*')
+        .eq('juego', juego)
+        .order('puntaje', { ascending: false })
+        .limit(5);
 
-    const { data: preguntadosData } = await this.supabase.client
-      .from('partidas')
-      .select('*')
-      .eq('juego', 'preguntados')
-      .order('puntaje', { ascending: false })
-      .limit(5);
-    this.preguntados = preguntadosData ?? [];
+      (this as any)[juego] = data ?? [];
+    }
 
-    const { data: ahorcadoData } = await this.supabase.client
-      .from('partidas')
-      .select('*')
-      .eq('juego', 'ahorcado')
-      .order('puntaje', { ascending: false })
-      .limit(5);
-    this.ahorcado = ahorcadoData ?? [];
-
-    
     this.cd.detectChanges();
   }
+
+  setFiltro(juego: string) {
+    this.filtroJuego = juego;
+  }
+
+  mostrarTabla(juego: string) {
+    return this.filtroJuego === 'todos' || this.filtroJuego === juego;
+  }
 }
+
 
 
 

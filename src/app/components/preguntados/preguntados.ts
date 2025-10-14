@@ -26,7 +26,10 @@ export class Preguntados implements OnInit {
   categorias: string[] = [];
   categoriaSeleccionada: string | null = null;
 
-  
+  respuestaCorrecta: boolean | null = null; // null = sin responder aún
+  mensajeRespuesta: string = '';
+
+
   tiempoInicio!: number;
   tiempoJugado: number = 0;
   timerInterval: any;
@@ -112,17 +115,25 @@ export class Preguntados implements OnInit {
   }
 
   verificarRespuesta(respuesta: string) {
-    if (!this.preguntaActual) return;
+  if (!this.preguntaActual) return;
 
-    if (respuesta === this.preguntaActual.correct_answer) {
-      this.puntaje += 10;
-      alert("✅ ¡Respuesta correcta!");
-    } else {
-      alert("❌ Respuesta incorrecta");
-    }
-
-    this.siguientePregunta();
+  if (respuesta === this.preguntaActual.correct_answer) {
+    this.puntaje += 10;
+    this.respuestaCorrecta = true;
+    this.mensajeRespuesta = "✅ ¡Respuesta correcta!";
+  } else {
+    this.respuestaCorrecta = false;
+    this.mensajeRespuesta = "❌ Respuesta incorrecta";
   }
+
+  // Esperamos un momento antes de pasar a la siguiente pregunta
+  setTimeout(() => {
+    this.respuestaCorrecta = null;
+    this.mensajeRespuesta = '';
+    this.siguientePregunta();
+  }, 1000); // 1 segundo para mostrar el mensaje
+}
+
 
   siguientePregunta() {
     if (this.preguntaActualIndex < this.limitePreguntas - 1) {

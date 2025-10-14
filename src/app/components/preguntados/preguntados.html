@@ -23,6 +23,13 @@
     </button>
   </div>
 
+  <!-- Mensaje de respuesta -->
+  <div *ngIf="respuestaCorrecta !== null" 
+       [ngClass]="{'correcta': respuestaCorrecta, 'incorrecta': !respuestaCorrecta}" 
+       class="mensaje-respuesta">
+    {{ mensajeRespuesta }}
+  </div>
+
   <p>Puntaje: {{ puntaje | puntos }}</p>
   
   
