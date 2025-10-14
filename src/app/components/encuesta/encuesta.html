@@ -1,23 +1,42 @@
 <h1>📋 Encuesta de satisfacción</h1>
 
 <form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+  <!-- Nombre y Apellido -->
   <div>
     <label>Nombre y apellido:</label>
     <input type="text" formControlName="nombre" />
+    <small *ngIf="form.get('nombre')?.touched && form.get('nombre')?.invalid" style="color:red">
+      {{ form.get('nombre')?.errors?.['required'] ? 'Debes ingresar tu nombre.' : '' }}
+      {{ form.get('nombre')?.errors?.['maxlength'] ? 'Máximo 50 caracteres.' : '' }}
+    </small>
   </div>
 
+  <!-- Edad -->
   <div>
     <label>Edad:</label>
     <input type="number" formControlName="edad" />
+    <small *ngIf="form.get('edad')?.touched && form.get('edad')?.invalid" style="color:red">
+      {{ form.get('edad')?.errors?.['required'] ? 'Debes ingresar tu edad.' : '' }}
+      {{ form.get('edad')?.errors?.['min'] ? 'Edad mínima 18 años.' : '' }}
+      {{ form.get('edad')?.errors?.['max'] ? 'Edad máxima 99 años.' : '' }}
+    </small>
   </div>
 
+  <!-- Teléfono -->
   <div>
     <label>Teléfono:</label>
     <input type="text" formControlName="telefono" maxlength="10" />
+    <small *ngIf="form.get('telefono')?.touched && form.get('telefono')?.invalid" style="color:red">
+      {{ form.get('telefono')?.errors?.['required'] ? 'Debes ingresar un teléfono.' : '' }}
+      {{ form.get('telefono')?.errors?.['pattern'] ? 'Solo se permiten números.' : '' }}
+      {{ form.get('telefono')?.errors?.['maxlength'] ? 'Máximo 10 dígitos.' : '' }}
+    </small>
   </div>
 
   <hr />
 
+  <!-- Pregunta 1 -->
   <div>
     <label>¿Qué te pareció la aplicación?</label>
     <select formControlName="pregunta1">
@@ -27,23 +46,37 @@
       <option value="Regular">Regular</option>
       <option value="Mala">Mala</option>
     </select>
+    <small *ngIf="form.get('pregunta1')?.touched && form.get('pregunta1')?.invalid" style="color:red">
+      Debes seleccionar una opción.
+    </small>
   </div>
 
-  <div>
-    <label>¿Qué funcionalidades te gustaron más?</label><br>
-    <input type="checkbox" (change)="form.get('pregunta2')?.setValue('Chat')" /> Chat
-    <input type="checkbox" (change)="form.get('pregunta2')?.setValue('Juegos')" /> Juegos
-    <input type="checkbox" (change)="form.get('pregunta2')?.setValue('Ranking')" /> Ranking
-  </div>
+ <!-- Pregunta 2 (Checkbox simple)-->
+<div>
+  <label>¿Qué funcionalidades te gustaron más?</label><br>
+  <input type="checkbox" (change)="form.get('pregunta2')?.setValue('Chat')" /> Chat
+  <input type="checkbox" (change)="form.get('pregunta2')?.setValue('Juegos')" /> Juegos
+  <input type="checkbox" (change)="form.get('pregunta2')?.setValue('Ranking')" /> Ranking
+  <small *ngIf="form.get('pregunta2')?.touched && form.get('pregunta2')?.invalid" style="color:red">
+    Debes seleccionar al menos una opción.
+  </small>
+</div>
 
+
+  <!-- Pregunta 3 -->
   <div>
     <label>¿Recomendarías la app?</label><br>
     <input type="radio" formControlName="pregunta3" value="Sí" /> Sí
     <input type="radio" formControlName="pregunta3" value="No" /> No
+    <small *ngIf="form.get('pregunta3')?.touched && form.get('pregunta3')?.invalid" style="color:red">
+      Debes seleccionar una opción.
+    </small>
   </div>
 
+  <!-- Error general -->
   <p *ngIf="errorMessage" style="color: red">{{ errorMessage }}</p>
 
   <button type="submit">Enviar</button>
 </form>
+
 

@@ -145,6 +145,16 @@ p[style*="color: red"] {
 div{
     background: linear-gradient(145deg, #0a2b36, #113b47);
 }
+/* --- Mensajes de error small --- */
+form small {
+  display: block;
+  margin-top: 2px;
+  font-size: 13px;
+  color: #ff4d4d; 
+  border-left: 3px solid #ff4d4d;
+  padding: 4px 8px;
+  border-radius: 4px;
+}
 
 /* --- Responsividad --- */
 @media (max-width: 480px) {
