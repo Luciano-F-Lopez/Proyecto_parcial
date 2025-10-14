@@ -26,17 +26,22 @@ export class Resultados implements OnInit {
   }
 
   async cargarResultados() {
-    const juegos = ['blackjack', 'mayor_menor', 'preguntados', 'ahorcado'];
+    const juegos = [
+    { key: 'blackjack', prop: 'blackjack' },
+    { key: 'mayor_menor', prop: 'mayorMenor' },
+    { key: 'preguntados', prop: 'preguntados' },
+    { key: 'ahorcado', prop: 'ahorcado' }
+  ];
 
     for (const juego of juegos) {
       const { data } = await this.supabase.client
         .from('partidas')
         .select('*')
-        .eq('juego', juego)
+        .eq('juego', juego.key)
         .order('puntaje', { ascending: false })
         .limit(5);
 
-      (this as any)[juego] = data ?? [];
+      (this as any)[juego.prop] = data ?? [];
     }
 
     this.cd.detectChanges();
