@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectorRef  } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
@@ -24,7 +24,8 @@ export class Login {
   constructor(
     private fb: FormBuilder,
     private supabaseService: SupabaseService,
-    private router: Router
+    private router: Router,
+    private cd: ChangeDetectorRef 
   ) {
     this.form = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
@@ -51,7 +52,8 @@ export class Login {
   });
 
   if (error) {
-    this.errorMessage = error.message;
+    this.errorMessage = "❌ Usuario o contraseña inválidos. Intenta nuevamente.";
+    this.cd.detectChanges(); 
   } else {
     console.log('Login success:', data);
     this.router.navigate(['/home']); 
