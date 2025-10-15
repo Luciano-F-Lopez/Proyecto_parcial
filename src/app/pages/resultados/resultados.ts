@@ -39,6 +39,7 @@ export class Resultados implements OnInit {
         .select('*')
         .eq('juego', juego.key)
         .order('puntaje', { ascending: false })
+        .order('tiempo_jugado', { ascending: true })
         .limit(5);
 
       (this as any)[juego.prop] = data ?? [];

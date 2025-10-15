@@ -10,78 +10,90 @@
     <button (click)="setFiltro('ahorcado')">Ahorcado</button>
   </div>
 
-  <!-- Tablas filtradas -->
+  <!-- Blackjack -->
   <section *ngIf="blackjack.length && mostrarTabla('blackjack')">
     <h2>Blackjack</h2>
     <table>
       <tr>
         <th>Jugador</th>
         <th>Puntaje</th>
+        <th>Tiempo Jugado</th>
         <th>Resultado</th>
         <th>Fecha</th>
       </tr>
       <tr *ngFor="let partida of blackjack">
         <td>{{ partida.usuario_email.split('@')[0] }}</td>
         <td>{{ partida.puntaje | puntos }}</td>
+        <td>{{ partida.tiempo_jugado }}s</td>
         <td>{{ partida.resultado }}</td>
         <td>{{ partida.fecha | fechaRelativa }}</td>
       </tr>
     </table>
   </section>
 
+  <!-- Mayor o Menor -->
   <section *ngIf="mayorMenor.length && mostrarTabla('mayor_menor')">
     <h2>Mayor o Menor</h2>
     <table>
       <tr>
         <th>Jugador</th>
         <th>Puntaje</th>
+        <th>Tiempo Jugado</th>
         <th>Resultado</th>
         <th>Fecha</th>
       </tr>
       <tr *ngFor="let partida of mayorMenor">
         <td>{{ partida.usuario_email.split('@')[0] }}</td>
-        <td>{{ partida.puntaje | puntos  }}</td>
+        <td>{{ partida.puntaje | puntos }}</td>
+        <td>{{ partida.tiempo_jugado }}s</td>
         <td>{{ partida.resultado }}</td>
         <td>{{ partida.fecha | fechaRelativa }}</td>
       </tr>
     </table>
   </section>
 
+  <!-- Preguntados -->
   <section *ngIf="preguntados.length && mostrarTabla('preguntados')">
     <h2>Preguntados</h2>
     <table>
       <tr>
         <th>Jugador</th>
         <th>Puntaje</th>
+        <th>Tiempo Jugado</th>
         <th>Resultado</th>
         <th>Fecha</th>
       </tr>
       <tr *ngFor="let partida of preguntados">
         <td>{{ partida.usuario_email.split('@')[0] }}</td>
-        <td>{{ partida.puntaje | puntos  }}</td>
+        <td>{{ partida.puntaje | puntos }}</td>
+        <td>{{ partida.tiempo_jugado }}s</td>
         <td>{{ partida.resultado }}</td>
         <td>{{ partida.fecha | fechaRelativa }}</td>
       </tr>
     </table>
   </section>
 
+  <!-- Ahorcado -->
   <section *ngIf="ahorcado.length && mostrarTabla('ahorcado')">
     <h2>Ahorcado</h2>
     <table>
       <tr>
         <th>Jugador</th>
         <th>Puntaje</th>
+        <th>Tiempo Jugado</th>
         <th>Resultado</th>
         <th>Fecha</th>
       </tr>
       <tr *ngFor="let partida of ahorcado">
         <td>{{ partida.usuario_email.split('@')[0] }}</td>
-        <td>{{ partida.puntaje | puntos  }}</td>
+        <td>{{ partida.puntaje | puntos }}</td>
+        <td>{{ partida.tiempo_jugado }}s</td>
         <td>{{ partida.resultado }}</td>
         <td>{{ partida.fecha | fechaRelativa }}</td>
       </tr>
     </table>
   </section>
 </div>
+
 
 
