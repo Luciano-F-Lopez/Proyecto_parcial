@@ -15,6 +15,7 @@ export class Encuesta {
   form: FormGroup;
   enviado = false;
   errorMessage: string | null = null;
+  successMessage: string | null = null; 
 
   constructor(
     private fb: FormBuilder,
@@ -34,6 +35,7 @@ export class Encuesta {
   async onSubmit() {
     this.enviado = true;
     this.errorMessage = null;
+    this.successMessage = null; 
 
     if (this.form.invalid) {
       this.errorMessage = "⚠ Debes completar todos los campos correctamente.";
@@ -44,7 +46,6 @@ export class Encuesta {
       return;
     }
 
-    // 🔹 Obtener usuario logueado
     const { data: userData, error: userError } = await this.supabase.client.auth.getUser();
 
     if (userError || !userData?.user) {
@@ -54,15 +55,9 @@ export class Encuesta {
 
     const user = userData.user;
 
-    // 🔹 Insertar en tabla "encuestas"
     const { error } = await this.supabase.client
       .from('encuestas')
-      .insert([
-        {
-          usuario_id: user.id,
-          ...this.form.value
-        }
-      ]);
+      .insert([{ usuario_id: user.id, ...this.form.value }]);
 
     if (error) {
       console.error(error);
@@ -70,9 +65,12 @@ export class Encuesta {
       return;
     }
 
-    alert('✅ Encuesta enviada correctamente');
-    this.router.navigate(['/home']);
+   
+    this.successMessage = "✅ Encuesta enviada correctamente";
+    this.form.reset();
+    this.enviado = false;
   }
 }
+
 
 

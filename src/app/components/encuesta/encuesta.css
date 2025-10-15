@@ -142,6 +142,15 @@ p[style*="color: red"] {
   border-radius: 5px;
 }
 
+p[style*="color: green"] {
+  font-size: 0.9rem;
+  font-weight: bold;
+  border-left: 3px solid green;
+  background: rgba(255, 77, 77, 0.1);
+  padding: 6px 10px;
+  border-radius: 5px;
+}
+
 div{
     background: linear-gradient(145deg, #0a2b36, #113b47);
 }
