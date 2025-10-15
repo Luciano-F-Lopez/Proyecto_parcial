@@ -10,13 +10,15 @@
   <p>Puntaje: {{puntaje | puntos}}</p>    
 
   <div class="teclado">
-    <button 
-      *ngFor="let letra of letras" 
-      (click)="seleccionar(letra)"
-      [disabled]="mensajeFinal !== ''">
-      {{ letra }}
-    </button>
-  </div>
+  <button 
+    *ngFor="let letra of letras"
+    (click)="seleccionar(letra)"
+    [disabled]="letrasSeleccionadas.includes(letra) || mensajeFinal !== ''"
+    [class.usada]="letrasSeleccionadas.includes(letra)">
+    {{ letra }}
+  </button>
+</div>
+
 
   <button (click)="iniciarJuego()">🔄 Nueva palabra</button>
 
